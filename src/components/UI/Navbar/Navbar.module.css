@@ -1,0 +1,49 @@
+.navbar {
+    display: flex;
+    font-size: 15px;
+    margin-top: 50px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.navbar__logo {
+    font-size: 20px;
+    padding-left: 9px;
+    margin-right: 128px;
+}
+
+.navbar__logo:hover {
+    background: teal;
+}
+
+
+
+.navbar__item {
+    margin-left: 25px;
+}
+
+.navbar__number {
+    margin-left: 55px;
+}
+
+.navbar__account {
+    margin-left: 89px;
+}
+.navbar__accountWrap {
+    flex-wrap: nowrap;
+}
+
+/*.navbar__account:after {*/
+/*    content: "Увійти/Реєстрація";*/
+/*}*/
+
+.navbar__text {
+    margin-left: 83%;
+    padding-top: 10px;
+}
+
+/*.navbar__accountMainWrap {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*}*/
+
