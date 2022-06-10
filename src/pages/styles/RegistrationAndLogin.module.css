@@ -1,0 +1,72 @@
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex: 0 0 320px;
+    margin-top: 75px;
+}
+
+.leftBlock {
+    flex: 1 0;
+}
+
+.picture {
+     max-width: 100%;
+     height: auto;
+     user-select: none;
+     pointer-events: none;
+ }
+
+.greetingsTitle {
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.greetingsTitleLogo {
+    font-weight: 700;
+    font-size: 20px;
+    color: #67FFD1;
+}
+
+.greetingsText {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    margin-top: 3px;
+}
+.greetingsLink {
+    color: #39B8FF;
+}
+
+.registration {
+    margin-top: 40px;
+    max-width: 370px;
+}
+
+.registrationTitle {
+    font-weight: 700;
+    font-size: 24px;
+    color: #E2DD5C;
+    margin-bottom: 18px;
+}
+
+.inputText {
+    font-weight: 700;
+    font-size: 16px;
+    color: #FFFFFF;
+    margin-bottom: 9px;
+}
+
+.inputFields {
+    margin-bottom: 43px;
+}
+
+
+
+
+
+

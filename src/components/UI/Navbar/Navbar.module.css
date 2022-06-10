@@ -1,49 +1,78 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
 .navbar {
-    display: flex;
-    font-size: 15px;
     margin-top: 50px;
+    display: flex;
     align-items: center;
-    flex-wrap: wrap;
+
+}
+.logoAndText {
+    display: flex;
+    align-items: center;
 }
 
-.navbar__logo {
+.logo {
+    width: 42px;
+    height: 40px;
+}
+
+.logoText {
+    font-style: italic;
+    font-weight: 900;
     font-size: 20px;
-    padding-left: 9px;
-    margin-right: 128px;
+    margin-left: 9px;
 }
 
-.navbar__logo:hover {
-    background: teal;
+.navbarUl {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-left: 128px;
 }
 
-
-
-.navbar__item {
+.link {
+    font-weight: 400;
+    font-size: 15px;
     margin-left: 25px;
 }
 
-.navbar__number {
+.link:hover {
+    color: #49DDA8;
+}
+.first {
+    margin-left: 0px;
+}
+
+.number {
     margin-left: 55px;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 15px;
 }
 
-.navbar__account {
-    margin-left: 89px;
-}
-.navbar__accountWrap {
-    flex-wrap: nowrap;
+.number:hover {
+    color: #49DDA8;
 }
 
-/*.navbar__account:after {*/
-/*    content: "Увійти/Реєстрація";*/
-/*}*/
-
-.navbar__text {
-    margin-left: 83%;
-    padding-top: 10px;
+.accountBlock {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-left: auto;
 }
 
-/*.navbar__accountMainWrap {*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*}*/
+.accountBlockText {
+    font-weight: 400;
+    font-size: 15px;
+}
+.accountBlockText:hover {
+    color: #49DDA8;
+}
 
+.active {
+    color: #49DDA8;
+}
