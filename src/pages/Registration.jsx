@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Navbar from "../components/UI/Navbar/Navbar";
 import s from "./styles/RegistrationAndLogin.module.css";
 import {LOGIN_ROUTE} from "../utils/consts";
@@ -6,8 +6,18 @@ import YellowInput from "../components/UI/input/YellowInput";
 import {Link} from "react-router-dom";
 import YellowButton from "../components/UI/button/YellowButton";
 import questPicture from "../img/квест 1.png";
+import {registration} from "../http/userAPI";
 
 const Registration = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [userName, setUserName] = useState('');
+    const [phone, setPhone] = useState('');
+
+    const signIn = async () => {
+        const response = await registration(email, password, userName, phone)
+        console.log(response)
+    }
     return (
         <div className={s.container}>
             <div className={s.leftBlock}>
@@ -25,15 +35,15 @@ const Registration = () => {
                     </div>
                     <div className={s.inputFields}>
                         <p className={s.inputText}>Введіть Ваше ім'я</p>
-                        <YellowInput style={{marginBottom: '28px'}}/>
+                        <YellowInput style={{marginBottom: '28px'}} value={userName} onChange={e => setUserName(e.target.value)}/>
                         <p className={s.inputText}>Введіть електронну скриньку</p>
-                        <YellowInput style={{marginBottom: '28px'}}/>
+                        <YellowInput style={{marginBottom: '28px'}} value={email} onChange={e => setEmail(e.target.value)}/>
                         <p className={s.inputText}>Введіть номер телефону</p>
-                        <YellowInput style={{marginBottom: '28px'}}/>
+                        <YellowInput style={{marginBottom: '28px'}} value={phone} onChange={e => setPhone(e.target.value)}/>
                         <p className={s.inputText}>Введіть пароль</p>
-                        <YellowInput type="password"/>
+                        <YellowInput type="password" value={password} onChange={e => setPassword(e.target.value)}/>
                     </div>
-                    <YellowButton>
+                    <YellowButton onClick={signIn}>
                         Зареєструватися
                     </YellowButton>
                 </div>
