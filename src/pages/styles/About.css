@@ -54,3 +54,33 @@
     height: 59px;
     margin-top: 160px;
 }
+
+@media (max-width: 1170px) {
+    .first-picture {
+        height: 420px;
+    }
+    .second-picture {
+        height: 350px;
+    }
+}
+
+@media (max-width: 992px) {
+    .first-picture {
+        height: 360px;
+    }
+    .second-picture {
+        height: 300px;
+    }
+}
+
+@media (max-width: 767px) {
+    .first-picture {
+        display: none;
+    }
+    .second-picture {
+        display: none;
+    }
+    .main-content {
+        margin: 50px auto;
+    }
+}
