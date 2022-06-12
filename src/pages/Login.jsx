@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from "./styles/RegistrationAndLogin.module.css";
 import {Link} from "react-router-dom";
 import {LOGIN_ROUTE, REGISTRATION_ROUTE} from "../utils/consts";
@@ -6,7 +6,17 @@ import YellowInput from "../components/UI/input/YellowInput";
 import YellowButton from "../components/UI/button/YellowButton";
 import questPicture from "../img/квест 1.png";
 
+import {login} from "../http/userAPI";
+
 const Login = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const signOut = async () => {
+        const response = await login(email, password)
+        console.log(response)
+    }
+
     return (
         <div className={s.container}>
             <div className={s.leftBlock}>
@@ -24,11 +34,11 @@ const Login = () => {
                     </div>
                     <div className={s.inputFields}>
                         <p className={s.inputText}>Введіть електронну скриньку</p>
-                        <YellowInput style={{marginBottom: '28px'}}/>
+                        <YellowInput style={{marginBottom: '28px'}} value={email} onChange={e => setEmail(e.target.value)}/>
                         <p className={s.inputText}>Введіть пароль</p>
-                        <YellowInput type="password"/>
+                        <YellowInput type="password" value={password} onChange={e => setPassword(e.target.value)}/>
                     </div>
-                    <YellowButton>
+                    <YellowButton onClick={signOut}>
                         Увійти
                     </YellowButton>
                 </div>
