@@ -15,7 +15,7 @@ const Registration = () => {
     const [phone, setPhone] = useState('');
 
     const signIn = async () => {
-        const response = await registration(email, password, userName, phone)
+        const response = await registration(email, phone, password, userName)
         console.log(response)
     }
     return (
