@@ -66,6 +66,26 @@ p {
 }
 
 
+@media (max-width: 1170px) {
+    .picture {
+        width: 450px;
+        user-select: none;
+        pointer-events: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .picture {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        margin-left: 50px;
+    }
+}
+
 
 
 
