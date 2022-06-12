@@ -1,29 +1,80 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Link, NavLink} from "react-router-dom";
 import s from "./Navbar.module.css";
 import logo from "../../../img/logo.png";
 import account from "../../../img/account.png";
-const Navbar = () => {
+import {Context} from "../../../index";
+import {observer} from "mobx-react-lite";
+import {HOME_ROUTE, LOGIN_ROUTE, QUESTS_ROUTE, RIGHTS_ROUTE} from "../../../utils/consts";
+const Navbar = observer(() => {
 
+    const {user} = useContext(Context);
     return (
         <div className={s.navbar}>
             <div className={s.logoAndText}>
-                <Link to="/" className={s.logo}><img src={logo} alt="QR"/></Link>
-                <Link to="/" className={s.logoText}>QuestRoad</Link>
+                <Link to={HOME_ROUTE} className={s.logo}><img src={logo} alt="QR"/></Link>
+                <Link to={HOME_ROUTE} className={s.logoText}>QuestRoad</Link>
             </div>
-            <ul className={s.navbarUl}>
-                <li className={s.li}> <NavLink to="/" className={({ isActive }) =>(isActive ? s.first + " " + s.link + " " + s.active : s.first + " " + s.link)}>Головна</NavLink></li>
-                <li className={s.li}><NavLink to="/posts" className={({ isActive }) =>(isActive ? s.link + " " + s.active : s.link)}>Квести</NavLink></li>
-                <li className={s.li}> <NavLink to="/sdas" className={({ isActive }) =>(isActive ? s.link + " " + s.active : s.link)}>Подати заяву на створення квесту</NavLink></li>
-            </ul>
-            <NavLink to="/" className={({ isActive }) =>(isActive ? s.number + " " + s.active : s.number)} >+380-95-87-54-120</NavLink>
+            {user.isAuth ?
+                <ul className={s.navbarUl}>
+                    <li className={s.li}><NavLink to={HOME_ROUTE}
+                                                  className={({isActive}) => (isActive ? s.first + " " + s.link + " " + s.active : s.first + " " + s.link)}>
+                        Головна
+                    </NavLink>
+                    </li>
+                    <li className={s.li}><NavLink to={QUESTS_ROUTE}
+                                                  className={({isActive}) => (isActive ? s.link + " " + s.active : s.link)}>
+                        Квести
+                    </NavLink>
+                    </li>
+                    <li className={s.li}><NavLink to={RIGHTS_ROUTE}
+                                                  className={({isActive}) => (isActive ? s.link + " " + s.active : s.link)}>
+                        Подати заяву на створення квесту
+                    </NavLink>
+                    </li>
+                </ul>
+                :
+                <ul className={s.navbarUl}>
+                    <li className={s.li}><NavLink to={HOME_ROUTE}
+                                                  className={({isActive}) => (isActive ? s.first + " " + s.link + " " + s.active : s.first + " " + s.link)}>
+                        Головна
+                    </NavLink>
+                    </li>
+                    <li className={s.li}><NavLink to={QUESTS_ROUTE}
+                                                  className={({isActive}) => (isActive ? s.link + " " + s.active : s.link)}>
+                        Квести
+                    </NavLink>
+                    </li>
+                    <li className={s.li}><NavLink to={RIGHTS_ROUTE}
+                                                  className={({isActive}) => (isActive ? s.link + " " + s.active : s.link)}>
+                        Подати заяву на створення квесту
+                    </NavLink>
+                    </li>
+                </ul>
+            }
 
-            <div className={s.accountBlock}>
-                <Link to="/login" className={s.accountBlockPicture}><img src={account} alt="Account"/></Link>
-                <NavLink to="/login" className={({ isActive }) =>(isActive ? s.accountBlockText + " " + s.active : s.accountBlockText)}>Увійти/Реєстрація</NavLink>
-            </div>
+                <a href="tel:380958754120" className={s.number} >
+                    +380-95-87-54-120
+                </a>
+            {user.isAuth ?
+                <div className={s.accountBlock}>
+                    <Link to={LOGIN_ROUTE} className={s.accountBlockPicture}><img src={account} alt="Account"/></Link>
+                    <NavLink to={LOGIN_ROUTE}
+                             className={({ isActive }) =>(isActive ? s.accountBlockText + " " + s.active : s.accountBlockText)}>
+                        Особистий кабінет
+                    </NavLink>
+                </div>
+                :
+                <div className={s.accountBlock}>
+                    <Link to={LOGIN_ROUTE} className={s.accountBlockPicture}><img src={account} alt="Account"/></Link>
+                    <NavLink to={LOGIN_ROUTE}
+                             className={({ isActive }) =>(isActive ? s.accountBlockText + " " + s.active : s.accountBlockText)}>
+                        Увійти/Реєстрація
+                    </NavLink>
+                </div>
+            }
         </div>
     );
-};
+});
 
 export default Navbar;

@@ -1,16 +1,17 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Redirect, Route, Routes} from "react-router-dom";
 import About from "../pages/About";
 import Registration from "../pages/Registration";
 import {authRoutes, publicRoutes} from "../routes";
 import {HOME_ROUTE} from "../utils/consts";
 import NotFound from "../pages/NotFound";
+import {Context} from "../index";
 
 const AppRouter = () => {
-    const isAuth = false;
+    const {user} = useContext(Context);
     return (
         <Routes>
-            {isAuth && authRoutes.map(({path, Component}) =>
+            {user.isAuth && authRoutes.map(({path, Component}) =>
                 <Route key={path} path={path} element={Component}/>
             )}
 
