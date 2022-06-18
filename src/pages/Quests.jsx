@@ -2,6 +2,9 @@ import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import { NavLink } from "react-router-dom";
 import {AppBar, Container, Toolbar, IconButton, Typography, Paper, Box, Grid, Card, CardMedia, CardContent, CardActions} from '@material-ui/core';
+import {Context} from "../index";
+import {login} from "../http/userAPI";
+import {getPopularQuests} from "../http/mainAPI";
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -33,15 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Quests = () => {
     async function getQuests(){
-
-        let res = await fetch("https://localhost:44332/api/Quest/Popular", {
-            method: 'GET',
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                "Authorization": "Bearer "+ localStorage.getItem("tok"),
-            },
-        });
+        let res = await getPopularQuests()
         res = await res.json();
         // Установка в localStorage всех данных о квесте в формате массива
         let names = [];
@@ -72,8 +67,8 @@ const Quests = () => {
             </Paper>
             <div className={classes.mainContent}>
                 <Container maxWidth="md">
-                    <Typography variant="h2" align="center" color="textPrimary" gutterBottom>QuestRoad service</Typography>
-                    <Typography variant="h5" align="center" color="textSecondary" paragraph>  {t("quest.title")}</Typography>
+                    <Typography variant="h2" align="center" color="white" gutterBottom>QuestRoad service</Typography>
+                    <Typography variant="h5" align="center" color="white" paragraph>  Заголовок квестів</Typography>
                     <Grid container spacing={2} justify="center">
                     </Grid>
                 </Container>
@@ -94,13 +89,13 @@ const Quests = () => {
                                         </Typography>
                                     </NavLink>
                                     <Typography>
-                                        {t("quest.name")}: {card.name},<br/>
-                                        {t("quest.city")}: {card.city}, <br/>
-                                        {t("quest.address")}: {card.adress}, <br/>
-                                        {t("quest.maxCount")}: {card.max_count_users}, <br/>
-                                        {t("quest.price")}: {card.price},<br/>
-                                        {t("quest.category")}: {card.category}, <br/>
-                                        {t("quest.difficulty_level")}: {card.difficulty_level}
+                                        Назва квесту: {card.name},<br/>
+                                        Город квесту: {card.city}, <br/>
+                                        Адреса: {card.adress}, <br/>
+                                        Максимальна кількість учасників: {card.max_count_users}, <br/>
+                                        Ціна: {card.price},<br/>
+                                        Категорія: {card.category}, <br/>
+                                        Рівень складності: {card.difficulty_level}
                                     </Typography>
                                 </CardContent>
                                 {/* <CardActions>
