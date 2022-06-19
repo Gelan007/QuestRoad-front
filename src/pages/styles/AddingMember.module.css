@@ -1,0 +1,30 @@
+.mainBlock div {
+    background-color: #757575;
+}
+.title {
+    font-weight: 700;
+    font-size: 20px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.mainBlock {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 50px auto;
+    width: 890px;
+    padding: 30px 50px;
+    border-radius: 59px;
+    background-color: #757575;
+}
+
+
+.titleDescription {
+    text-align: center;
+    line-height: 1.6;
+}
+
+.yellow {
+    color: #E2DD5C;
+}
