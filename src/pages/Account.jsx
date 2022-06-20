@@ -32,6 +32,7 @@ const Account = observer(() => {
     async function getUserInfo() {
         await getUserAccountInfo().then((res) => {
             setUserInfo(res);
+            localStorage.setItem("userName", res.name)
         })
     }
     async function getQuest() {

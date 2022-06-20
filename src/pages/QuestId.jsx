@@ -1,18 +1,24 @@
-import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
+import React, {useContext, useEffect, useState} from 'react';
+import {useNavigate, useParams} from "react-router-dom";
 import {getQuestById} from "../http/mainAPI";
-import s from "./styles/QuestId.module.css"
+import s from "./styles/QuestId.module.css";
 import BigGreenButton from "../components/UI/button/BigGreenButton";
 import dfltPhoto from "../img/квест 1.png";
-import {Card, CardMedia, Container} from "@material-ui/core";
-import defaultQuestPhoto from "../img/квест 1.png";
+import {Context} from "../index";
+import {BOOKING_ROUTE} from "../utils/consts";
+import {observer} from "mobx-react-lite";
 
-const QuestId = () => {
+
+const QuestId = observer(() => {
     const params = useParams();
     const [quest, setQuest] = useState([]);
+    const {user} = useContext(Context);
+    const navigate = useNavigate();
 
     useEffect(() => {
         getQuest();
+        user.setQuestId(parseInt(params.id));
+        localStorage.setItem('questId', params.id)
     }, [])
 
     async function getQuest(){
@@ -22,8 +28,6 @@ const QuestId = () => {
     }
 
 
-
-    console.log(quest)
     return (
         <div>
             <div className={s.mainTitle}>
@@ -60,11 +64,12 @@ const QuestId = () => {
                 </li>
             </ul>
             <BigGreenButton style={{marginBottom: "80px"}}
-                            >
+                            onClick={user.isAuth == true ? (() => navigate(BOOKING_ROUTE)) : () => alert("Спочатку необхідно авторизуватись")}>
+
                 Забронювати
             </BigGreenButton>
         </div>
     );
-};
+});
 
 export default QuestId;

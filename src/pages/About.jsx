@@ -7,6 +7,8 @@ import inst from "../img/instagram_icon 1.svg";
 import facebook from "../img/facebook_icon 1.svg";
 import youtube from "../img/youtube_logo_mint_icon 1.svg";
 import BigGreenButton from "../components/UI/button/BigGreenButton";
+import {Link} from "react-router-dom";
+import {QUESTS_ROUTE} from "../utils/consts";
 
 const About = () => {
     return (
@@ -18,9 +20,11 @@ const About = () => {
                 <div className="main-content__text">
                     Універсальна платформа з можливістю запису, перегляду і додаванню квестів
                 </div>
-                <BigGreenButton>
-                    Перейти до квестів
-                </BigGreenButton>
+                <Link to={QUESTS_ROUTE}>
+                    <BigGreenButton>
+                        Перейти до квестів
+                    </BigGreenButton>
+                </Link>
             </div>
 
             <div className="pictures">

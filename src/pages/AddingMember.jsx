@@ -1,20 +1,28 @@
 import React, {useState} from 'react';
 import s from "./styles/AddingMember.module.css";
 import BigGreenButton from "../components/UI/button/BigGreenButton";
-import {QUESTS_ROUTE} from "../utils/consts";
+import {ACCOUNT_ROUTE, QUESTS_ROUTE} from "../utils/consts";
 import YellowInput from "../components/UI/input/YellowInput";
 import YellowButton from "../components/UI/button/YellowButton";
 import {addMembers} from "../http/mainAPI";
+import {useNavigate} from "react-router-dom";
 
 const AddingMember = () => {
     const [userId, setUserId] = useState();
     const [teamId, setTeamId] = useState();
+    const navigate = useNavigate();
     let now = new Date();
 
     async function addMemberAsync () {
-        await addMembers(parseInt(userId), parseInt(teamId), now).then((res) => {
-            console.log(res);
-        });
+        try {
+            await addMembers(parseInt(userId), parseInt(teamId), now).then((res) => {
+                alert(`Ви успішно додали користувача під номером ${userId}`);
+                navigate(ACCOUNT_ROUTE);
+            });
+        } catch {
+            alert(`Щось пішло не так. Будь ласка, перепровірте введені дані та попробуйте ще раз`);
+        }
+
     }
 
     return (
