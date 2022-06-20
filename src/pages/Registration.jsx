@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React , {useState} from 'react';
 import Navbar from "../components/UI/Navbar/Navbar";
 import s from "./styles/RegistrationAndLogin.module.css";
 import {LOGIN_ROUTE} from "../utils/consts";
 import YellowInput from "../components/UI/input/YellowInput";
-import {Link} from "react-router-dom";
+import {useNavigate, Link } from 'react-router-dom';
 import YellowButton from "../components/UI/button/YellowButton";
 import questPicture from "../img/квест 1.png";
 import {registration} from "../http/userAPI";
@@ -13,11 +13,16 @@ const Registration = () => {
     const [password, setPassword] = useState('');
     const [userName, setUserName] = useState('');
     const [phone, setPhone] = useState('');
-
+    const navigate = useNavigate();
     const signIn = async () => {
-        const response = await registration(email, phone, password, userName)
-        console.log(response)
+        try {
+            await registration(email, phone, password, userName)
+            navigate(LOGIN_ROUTE);
+        } catch (e){
+            alert("Користувач з такою поштою вже існує")
+        }
     }
+
     return (
         <div className={s.container}>
             <div className={s.leftBlock}>

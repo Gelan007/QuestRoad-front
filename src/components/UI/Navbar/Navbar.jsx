@@ -5,7 +5,7 @@ import logo from "../../../img/logo.png";
 import account from "../../../img/account.png";
 import {Context} from "../../../index";
 import {observer} from "mobx-react-lite";
-import {HOME_ROUTE, LOGIN_ROUTE, QUESTS_ROUTE, RIGHTS_ROUTE} from "../../../utils/consts";
+import {ACCOUNT_ROUTE, HOME_ROUTE, LOGIN_ROUTE, QUESTS_ROUTE, RIGHTS_ROUTE} from "../../../utils/consts";
 const Navbar = observer(() => {
 
     const {user} = useContext(Context);
@@ -58,8 +58,8 @@ const Navbar = observer(() => {
                 </a>
             {user.isAuth ?
                 <div className={s.accountBlock}>
-                    <Link to={LOGIN_ROUTE} className={s.accountBlockPicture}><img src={account} alt="Account"/></Link>
-                    <NavLink to={LOGIN_ROUTE}
+                    <Link to={ACCOUNT_ROUTE} className={s.accountBlockPicture}><img src={account} alt="Account"/></Link>
+                    <NavLink to={ACCOUNT_ROUTE}
                              className={({ isActive }) =>(isActive ? s.accountBlockText + " " + s.active : s.accountBlockText)}>
                         Особистий кабінет
                     </NavLink>
