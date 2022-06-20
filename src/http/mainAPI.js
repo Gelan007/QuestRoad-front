@@ -25,3 +25,8 @@ export const addMembers = async (user_id, team_id, when_assigned) => {
     const response = await $mainHost.post('api/Member',{user_id, team_id, when_assigned})
     return response;
 }
+
+export const getQuestById = async (quest_id) => {
+    const response = await $mainHost.get(`api/Quest/${quest_id}`)
+    return response.data;
+}

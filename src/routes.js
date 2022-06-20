@@ -3,7 +3,7 @@ import {
     ADDING_MEMBER_ROUTE,
     ADMIN_ROUTE,
     HOME_ROUTE,
-    LOGIN_ROUTE,
+    LOGIN_ROUTE, QUEST_ID_ROUTE,
     QUESTS_ROUTE,
     REGISTRATION_ROUTE
 } from "./utils/consts";
@@ -13,6 +13,7 @@ import Quests from "./pages/Quests";
 import About from "./pages/About";
 import Account from "./pages/Account";
 import AddingMember from "./pages/AddingMember";
+import QuestId from "./pages/QuestId";
 
 export const publicRoutes = [
     {
@@ -30,6 +31,10 @@ export const publicRoutes = [
     {
         path: HOME_ROUTE,
         Component: <About/>
+    },
+    {
+        path: QUEST_ID_ROUTE,
+        Component: <QuestId/>
     }
 ]
 
@@ -49,5 +54,9 @@ export const authRoutes = [
     {
         path: ADDING_MEMBER_ROUTE,
         Component: <AddingMember/>
+    },
+    {
+        path: QUEST_ID_ROUTE,
+        Component: <QuestId/>
     }
 ]

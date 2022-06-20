@@ -6,3 +6,4 @@ export const QUESTS_ROUTE = "/quests";
 export const ACCOUNT_ROUTE = "/account";
 export const RIGHTS_ROUTE = "/rights";
 export const ADDING_MEMBER_ROUTE = "/addingMembers";
+export const QUEST_ID_ROUTE = "/quests/:id";
