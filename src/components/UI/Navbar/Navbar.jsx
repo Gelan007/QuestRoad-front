@@ -9,6 +9,21 @@ import {ACCOUNT_ROUTE, HOME_ROUTE, LOGIN_ROUTE, QUESTS_ROUTE, RIGHTS_ROUTE} from
 const Navbar = observer(() => {
 
     const {user} = useContext(Context);
+
+    function isCompany(){
+        if(localStorage.getItem("isAdminIn")== 3){
+            return (
+                <NavLink
+                    className={({isActive}) => (isActive ? s.link + " " + s.active : s.link)}
+                    to="/companyServices"
+                    activeClassName={s.active}
+                >
+                    Панель
+                </NavLink>
+            )
+        }
+    }
+
     return (
         <div className={s.navbar}>
             <div className={s.logoAndText}>
@@ -32,6 +47,10 @@ const Navbar = observer(() => {
                         Подати заяву на створення квесту
                     </NavLink>
                     </li>
+                    <li className={s.li}>
+                        {isCompany()}
+                    </li>
+
                 </ul>
                 :
                 <ul className={s.navbarUl}>

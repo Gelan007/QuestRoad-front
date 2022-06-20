@@ -32,7 +32,9 @@ const Account = observer(() => {
     async function getUserInfo() {
         await getUserAccountInfo().then((res) => {
             setUserInfo(res);
-            localStorage.setItem("userName", res.name)
+            localStorage.setItem("userName", res.name);
+            localStorage.setItem("isAdminIn", res.role);
+            localStorage.setItem("companyId", res.company_id);
         })
     }
     async function getQuest() {
