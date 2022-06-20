@@ -1,20 +1,31 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import s from "./styles/RegistrationAndLogin.module.css";
-import {Link} from "react-router-dom";
-import {LOGIN_ROUTE, REGISTRATION_ROUTE} from "../utils/consts";
+import {Link, useNavigate} from "react-router-dom";
+import {ACCOUNT_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE} from "../utils/consts";
 import YellowInput from "../components/UI/input/YellowInput";
 import YellowButton from "../components/UI/button/YellowButton";
 import questPicture from "../img/квест 1.png";
 
 import {login} from "../http/userAPI";
+import {observer} from "mobx-react-lite";
+import {Context} from "../index";
 
-const Login = () => {
+const Login = observer(() => {
+    const {user} = useContext(Context);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const navigate = useNavigate();
     const signOut = async () => {
-        const response = await login(email, password)
-        console.log(response)
+        try {
+            const response = await login(email, password)
+            user.setUser(response);
+            user.setIsAuth(true)
+            navigate(ACCOUNT_ROUTE);
+            console.log(user.isAuth)
+        } catch {
+            alert("Пошта чи пароль введі не вірно")
+        }
+
     }
 
     return (
@@ -48,6 +59,6 @@ const Login = () => {
             </div>
         </div>
     );
-};
+});
 
 export default Login;
