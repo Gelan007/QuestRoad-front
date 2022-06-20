@@ -1,0 +1,35 @@
+.photo {
+    width: 800px;
+    border-radius: 30px;
+    margin-bottom: 60px;
+}
+
+.photoP {
+    text-align: center;
+}
+
+.mainTitle {
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 30px;
+}
+
+.description {
+    list-style-type: none;
+}
+
+.descriptionName {
+    font-weight: 700;
+    font-size: 16px;
+    color: #26CA99;
+}
+
+.descriptionValue {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.li {
+    margin-bottom: 15px;
+}
+
