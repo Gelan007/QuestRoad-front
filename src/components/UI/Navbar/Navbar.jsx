@@ -24,6 +24,24 @@ const Navbar = observer(() => {
         }
     }
 
+    function isAdmin(){
+        if(localStorage.getItem("isAdminIn")== "2"){
+            console.log(localStorage.getItem("isAdminIn"));
+            return (
+                <NavLink
+                    className={({isActive}) => (isActive ? s.link + " " + s.active : s.link)}
+                    to="/services"
+                    activeClassName={s.active}
+                >
+                    Панель
+                </NavLink>
+            )
+        }
+    }
+
+
+
+
     return (
         <div className={s.navbar}>
             <div className={s.logoAndText}>
@@ -49,6 +67,9 @@ const Navbar = observer(() => {
                     </li>
                     <li className={s.li}>
                         {isCompany()}
+                    </li>
+                    <li className={s.li}>
+                        {isAdmin()}
                     </li>
 
                 </ul>

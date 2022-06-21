@@ -20,6 +20,9 @@ const Account = observer(() => {
             getUserBooking();
             getUserInfo();
             getQuest();
+            localStorage.removeItem("isAdminIn");
+            localStorage.removeItem("companyId");
+
     }, [])
 
 

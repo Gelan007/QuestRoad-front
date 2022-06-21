@@ -13,3 +13,17 @@ export const QUEST_ROUTE = "/Quest";
 export const ADD_QUEST_ROUTE = "/AddQuest";
 export const EDIT_QUEST_ROUTE = "/EditQuest";
 export const COMPANY_SERVICES_ROUTE = "/companyServices";
+export const BOOKING_LIST_ROUTE = "/BookingList";
+export const COMPANY_LIST_ROUTE = "/CompanyList";
+export const USER_LIST_ROUTE = "/UserList";
+export const ADD_BOOKING_ROUTE = "/AddBooking";
+export const EDIT_BOOKING_ROUTE = "/EditBooking";
+export const ADD_COMPANY_ROUTE = "/AddCompany";
+export const EDIT_COMPANY_ROUTE = "/EditCompany";
+export const ADD_USER_ROUTE = "/AddUser";
+export const EDIT_USER_ROUTE = "/EditUser";
+export const COMPANY_ROUTE = "/Company";
+export const BOOKING_ADMIN_ROUTE = "/BookingA";
+export const SERVICES_ROUTE = "/services";
+
+
