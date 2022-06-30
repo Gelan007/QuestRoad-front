@@ -35,3 +35,8 @@ export const createBookingForm = async (Quest_id, teamName, countOfUsers, descri
     const response = await $mainAuthHost.post('api/Booking/Form',{Quest_id, teamName, countOfUsers, description, date})
     return response;
 }
+
+export const getAllQuests = async() => {
+    const response = await $mainHost.get('api/Quest')
+    return response.data;
+}

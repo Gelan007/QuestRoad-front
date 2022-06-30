@@ -9,6 +9,8 @@ import {createBookingForm, getQuestById} from "../http/mainAPI";
 import YellowInput from "../components/UI/input/YellowInput";
 import YellowButton from "../components/UI/button/YellowButton";
 import {useNavigate} from "react-router-dom";
+import {useTranslation} from "react-i18next";
+import "../utils/i18next";
 
 
 const Booking = () => {
@@ -19,6 +21,7 @@ const Booking = () => {
     const [description, setDescription] = useState("-");
     const [date, setDate] = useState("");
     const navigate = useNavigate();
+    const {t} = useTranslation();
 
     useEffect(() => {
         getQuest();
@@ -45,20 +48,20 @@ const Booking = () => {
     return (
         <div>
             <div className={s.mainTitle}>
-                <span style={{fontSize:"20px", fontWeight: "700"}}>Квест: </span> <span style={{fontSize:"20px"}}>{quest.name}</span>
+                <span style={{fontSize:"20px", fontWeight: "700"}}>{t("booking.quest")} </span> <span style={{fontSize:"20px"}}>{quest.name}</span>
             </div>
             <p className={s.photoP}> <img src={quest.photo != null ? quest.photo : dfltPhoto} alt="Фотографія квесту" className={s.photo}/></p>
             <ul className={s.description}>
                 <li className={s.li}>
-                    <span className={s.descriptionName}>Максимальна кількість користувачів: </span> <span className={s.descriptionValue}>{quest.max_count_users}</span>
+                    <span className={s.descriptionName}>{t("booking.userCount")} </span> <span className={s.descriptionValue}>{quest.max_count_users}</span>
                 </li>
                 <li className={s.li}>
-                    <span className={s.descriptionName}>Ціна: </span> <span className={s.descriptionValue}>{quest.price}</span>
+                    <span className={s.descriptionName}>{t("booking.price")} </span> <span className={s.descriptionValue}>{quest.price}</span>
                 </li>
             </ul>
 
             <div className={s.title}>
-                Онлайн бронювання квесту
+                {t("booking.onlineBooking")}
             </div>
 
             <div className={s.inputFields}>
@@ -70,22 +73,22 @@ const Booking = () => {
                     }} type="datetime-local" placeholder="date" style={{marginBottom: "35px", width:"380px"}} value={date} />
                 </div>
                 <div className={s.block}>
-                    <div className={s.inputText}>Назва команди:</div>
+                    <div className={s.inputText}>{t("booking.teamName")}</div>
                     <YellowInput type="text" value={teamName} onChange={(e) => setTeamName(e.target.value)} style={{marginBottom: "35px", width:"380px"}}/>
                 </div>
                 <div className={s.block}>
-                    <div className={s.inputText}>Кількість користувачів в команді:</div>
+                    <div className={s.inputText}>{t("booking.userCountInTeam")}</div>
                     <YellowInput type="text" value={countOfUsers} onChange={(e) => setCountOfUsers(e.target.value)} style={{marginBottom: "35px", width:"380px"}}/>
                 </div>
                 <div className={s.block}>
-                    <div className={s.inputText}>Коментар:</div>
+                    <div className={s.inputText}>{t("booking.Description")}</div>
                     <YellowInput type="text" value={description} onChange={(e) => setDescription(e.target.value)} style={{width:"380px"}}/>
                 </div>
             </div>
 
             <YellowButton  style={{marginBottom: "50px", marginLeft: "190px", marginTop: "55px"}}
                            onClick={createBooking}>
-                Забронювати
+                {t("booking.makeBook")}
             </YellowButton>
 
 

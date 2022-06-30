@@ -25,5 +25,6 @@ export const EDIT_USER_ROUTE = "/EditUser";
 export const COMPANY_ROUTE = "/Company";
 export const BOOKING_ADMIN_ROUTE = "/BookingA";
 export const SERVICES_ROUTE = "/services";
+export const USER_ROUTE = "/User";
 
 

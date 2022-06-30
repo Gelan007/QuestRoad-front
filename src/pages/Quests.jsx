@@ -4,8 +4,11 @@ import {NavLink, useNavigate} from "react-router-dom";
 import {AppBar, Container, Toolbar, IconButton, Typography, Paper, Box, Grid, Card, CardMedia, CardContent, CardActions} from '@material-ui/core';
 import {Context} from "../index";
 import {login} from "../http/userAPI";
-import {getPopularQuests, getUserQuests} from "../http/mainAPI";
+import {getAllQuests, getPopularQuests, getUserQuests} from "../http/mainAPI";
 import defaultQuestPhoto from "../img/квест 1.png";
+
+import {useTranslation} from "react-i18next";
+import "../utils/i18next";
 
 const useStyles = makeStyles((theme) => ({
 
@@ -40,31 +43,40 @@ const useStyles = makeStyles((theme) => ({
 const Quests = () => {
 
     const navigate = useNavigate();
+    const {t} = useTranslation();
+    const [quests, setQuests] = useState([]);
 
 
+    useEffect(() => {
+        getQuests();
+    })
     async function getQuests(){
-        let res = await fetch("https://localhost:44332/api/Quest/Popular", {
-            method: 'GET',
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                "Authorization": "Bearer "+ localStorage.getItem("tok"),
-            },
-        });
-        res = await res.json();
-        // Установка в localStorage всех данных о квесте в формате массива
-        let names = [];
-        for(var i in res ){
-            names[i] = res[i];
-        }
-        localStorage.setItem("quests", JSON.stringify(names));
+        // let res = await fetch("https://localhost:44332/api/Quest/Popular", {
+        //     method: 'GET',
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //         "Accept": "application/json",
+        //         "Authorization": "Bearer "+ localStorage.getItem("token"),
+        //     },
+        // });
+        let res = await getAllQuests().then((res) => {
+            setQuests(res);
+        })
+
+        // res = await res.json();
+        // // Установка в localStorage всех данных о квесте в формате массива
+        // let names = [];
+        // for(var i in res ){
+        //     names[i] = res[i];
+        // }
+        // localStorage.setItem("quests", JSON.stringify(names));
         // console.log(localStorage.getItem("quests"));
     }
 
-    getQuests();
+    // getQuests();
     var items = JSON.parse(localStorage.getItem("quests"));
     const classes = useStyles();
-
+    console.log(quests)
 
 
     function setStateQuestId(id){
@@ -83,14 +95,14 @@ const Quests = () => {
             <div className={classes.mainContent}>
                 <Container maxWidth="md">
                     <Typography variant="h2" align="center" color="white" gutterBottom>QuestRoad service</Typography>
-                    <Typography variant="h5" align="center" color="white" paragraph>  Заголовок квестів</Typography>
+                    <Typography variant="h5" align="center" color="white" paragraph>  {t("quest.title")}</Typography>
                     <Grid container spacing={2} justify="center">
                     </Grid>
                 </Container>
             </div>
             <Container className={classes.cardGrid} maxWidth="md">
                 <Grid container spacing={4} >
-                    {JSON.parse(localStorage.getItem("quests")).map((card) => (
+                    {quests.map((card) => (
                         <Grid item key={card} xs={12} sm={6} md={4}>
                             <Card className={classes.card} onClick={() => navigate((`/quests/${parseInt(card.quest_id)}`))} style={{cursor:"pointer"}}>
                                 <CardMedia
@@ -104,13 +116,13 @@ const Quests = () => {
                                         </Typography>
                                     </NavLink>
                                     <Typography style={{backgroundColor: '#757575'}}>
-                                        Назва квесту: {card.name},<br/>
-                                        Город квесту: {card.city}, <br/>
-                                        Адреса: {card.adress}, <br/>
-                                        Максимальна кількість учасників: {card.max_count_users}, <br/>
-                                        Ціна: {card.price},<br/>
-                                        Категорія: {card.category}, <br/>
-                                        Рівень складності: {card.difficulty_level}
+                                        {t("quest.name")}: {card.name},<br/>
+                                        {t("quest.city")}: {card.city}, <br/>
+                                        {t("quest.address")}: {card.adress}, <br/>
+                                        {t("quest.maxCount")}: {card.max_count_users}, <br/>
+                                        {t("quest.price")}: {card.price},<br/>
+                                        {t("quest.category")}: {card.category}, <br/>
+                                        {t("quest.difficulty_level")}: {card.difficulty_level}
                                     </Typography>
                                 </CardContent>
                                 {/* <CardActions>

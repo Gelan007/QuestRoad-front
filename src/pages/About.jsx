@@ -10,19 +10,25 @@ import BigGreenButton from "../components/UI/button/BigGreenButton";
 import {Link} from "react-router-dom";
 import {QUESTS_ROUTE} from "../utils/consts";
 
+import {useTranslation} from "react-i18next";
+import "../utils/i18next";
+
+
 const About = () => {
+    const {t} = useTranslation();
+
     return (
         <div>
             <div className="main-content">
                 <div className="main-content__title">
-                    Час квестів настав
+                    {t("about.timeToQuest")}
                 </div>
                 <div className="main-content__text">
-                    Універсальна платформа з можливістю запису, перегляду і додаванню квестів
+                    {t("about.universalPlatform")}
                 </div>
                 <Link to={QUESTS_ROUTE}>
                     <BigGreenButton>
-                        Перейти до квестів
+                        {t("about.goTo")}
                     </BigGreenButton>
                 </Link>
             </div>

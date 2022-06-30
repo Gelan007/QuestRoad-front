@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, Suspense} from 'react';
 import {Redirect, Route, Routes} from "react-router-dom";
 import About from "../pages/About";
 import Registration from "../pages/Registration";
@@ -10,6 +10,7 @@ import {Context} from "../index";
 const AppRouter = () => {
     const {user} = useContext(Context);
     return (
+
         <Routes>
             {user.isAuth && authRoutes.map(({path, Component}) =>
                 <Route key={path} path={path} element={Component}/>
@@ -29,6 +30,7 @@ const AppRouter = () => {
 
             <Route path="*" element={<NotFound/>}/>
         </Routes>
+
     );
 };
 

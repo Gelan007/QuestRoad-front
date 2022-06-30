@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Card,CardBody,CardHeader, Col, Row, Table} from 'reactstrap';
 import {NavLink, useHistory, useNavigate} from "react-router-dom";
 import {EDIT_USER_ROUTE} from "../../utils/consts";
+import YellowButton from "../../components/UI/button/YellowButton";
 
 
 
@@ -71,7 +72,7 @@ function UserList(){
                                     <th>User id</th>
                                     <th>Email</th>
                                     <th>Phone</th>
-                                    <th>Password</th>
+                                    {/*<th>Password</th>*/}
                                     <th>Name</th>
                                     <th>Role</th>
                                     <th>Company id</th>
@@ -84,19 +85,19 @@ function UserList(){
                                             <td>{item.user_id}</td>
                                             <td>{item.email}</td>
                                             <td>{item.phone}</td>
-                                            <td>{item.password}</td>
+                                            {/*<td>{item.password}</td>*/}
                                             <td>{item.name}</td>
                                             <td>{item.role}</td>
                                             <td>{item.company_id}</td>
                                             <td>
                                                 <row>
-                                                    <button className="btn btn-warning" onClick={()=>editUser(item.user_id)}>Edit</button>
+                                                    <YellowButton onClick={()=>editUser(item.user_id)}>Edit</YellowButton>
                                                 </row>
                                                 <row>
                                                     -
                                                 </row>
                                                 <row>
-                                                    <button className="btn btn-warning" onClick={()=>callTwoFunctions(item.user_id)}>Delete</button>
+                                                    <YellowButton  onClick={()=>callTwoFunctions(item.user_id)}>Delete</YellowButton>
                                                 </row>
                                             </td>
 

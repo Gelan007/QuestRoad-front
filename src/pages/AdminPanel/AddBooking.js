@@ -2,6 +2,8 @@ import React,{useState} from "react";
 import { Button,Card, CardBody, CardFooter, Col,Container, Form,Input,InputGroup,Row } from "reactstrap";
 import {NavLink, useNavigate} from "react-router-dom";
 import {BOOKING_LIST_ROUTE} from "../../utils/consts";
+import YellowInput from "../../components/UI/input/YellowInput";
+import YellowButton from "../../components/UI/button/YellowButton";
 
 
 function AddBooking(){
@@ -43,29 +45,34 @@ function AddBooking(){
                                 <Form onSubmit={createBooking}>
                                     <h1>Add New</h1>
                                     <InputGroup className="mb-3">
-                                        <Input type="text" name="quest_id" placeholder="quest_id" onChange={(e)=>setQuest_id(e.target.value)}/>
+                                        Айді квесту
+                                        <YellowInput  style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="quest_id" placeholder="quest_id" onChange={(e)=>setQuest_id(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <Input type="text" name="team_id" placeholder="team_id" onChange={(e)=>setTeam_id(e.target.value)}/>
+                                        Айді команди
+                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="team_id" placeholder="team_id" onChange={(e)=>setTeam_id(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <Input type="text" name="price" placeholder="price" onChange={(e)=>setPrice(e.target.value)}/>
+                                        Ціна
+                                        <YellowInput  style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="price" placeholder="price" onChange={(e)=>setPrice(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <Input type="text" name="time" placeholder="time" onChange={(e)=>setTime(e.target.value)}/>
+                                        Час
+                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="time" placeholder="time" onChange={(e)=>setTime(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <Input type="text" name="description" placeholder="description" onChange={(e)=>setDescription(e.target.value)}/>
+                                        Опис
+                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "50px"}} type="text" name="description" placeholder="description" onChange={(e)=>setDescription(e.target.value)}/>
                                     </InputGroup>
 
 
                                     <CardFooter className="p-4">
                                         <Row>
                                             <Col xs="12" sm="6">
-                                                <Button type="submit" className="btn btn-info mb-1" block><span>Save</span></Button>
+                                                <YellowButton style={{marginBottom: "20px"}} type="submit" block>Save</YellowButton>
                                             </Col>
                                             <Col xs="12" sm="6">
-                                                <Button  type="reset" className="btn btn-info mb-1" block><span>Cancel</span></Button>
+                                                <YellowButton type="reset" block>Cancel</YellowButton>
                                             </Col>
                                         </Row>
                                     </CardFooter>

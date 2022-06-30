@@ -1,6 +1,9 @@
 import React,{useState} from "react";
 import { Button,Card, CardBody, CardFooter, Col,Container, Form,Input,InputGroup,Row } from "reactstrap";
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
+import YellowInput from "../../components/UI/input/YellowInput";
+import YellowButton from "../../components/UI/button/YellowButton";
+import {COMPANY_LIST_ROUTE} from "../../utils/consts";
 
 function EditCompany(){
 
@@ -21,7 +24,7 @@ function EditCompany(){
     const [account, setAccount] = useState("");
     const [isComfirmed, setIsConfirmed] = useState("false");
     const [adress, setAdress] = useState("");
-
+    const navigate = useNavigate();
 
     let convertedBoolValue;
     if(isComfirmed == "false"){
@@ -33,17 +36,23 @@ function EditCompany(){
 
 
     async function editCompany(e){
-        e.preventDefault();
-        let res = await fetch("https://localhost:44332/api/Company/" + localStorage.getItem("id"), {
-            method: 'PUT',
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                "Authorization": "Bearer "+ localStorage.getItem("token"),
-            },
-            body: JSON.stringify({Name:name,Company_check:check, Email:email, Phone:phone,Company_account:account, Is_confirmed:convertedBoolValue, Adress:adress}),
-        });
-        //debugger;
+        try {
+            e.preventDefault();
+            let res = await fetch("https://localhost:44332/api/Company/" + localStorage.getItem("id"), {
+                method: 'PUT',
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                    "Authorization": "Bearer "+ localStorage.getItem("token"),
+                },
+                body: JSON.stringify({Name:name,Company_check:check, Email:email, Phone:phone,Company_account:account, Is_confirmed:convertedBoolValue, Adress:adress}),
+            });
+            navigate(COMPANY_LIST_ROUTE)
+            //debugger;
+        } catch {
+            alert("Something went wrong")
+        }
+
     }
 
 
@@ -71,33 +80,40 @@ function EditCompany(){
                                 <Form onSubmit={editCompany}>
                                     <h1>Update Company</h1>
                                     <InputGroup className="mb-3">
-                                        <Input type="text" name="name" placeholder={result[0].name}  onChange={(e)=>setName(e.target.value)}/>
+                                        Назва
+                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="name" placeholder={result[0].name}  onChange={(e)=>setName(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <Input type="text" name="company_check" placeholder={result[0].company_check} onChange={(e)=>setCheck(e.target.value)}/>
+                                        Чек
+                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="company_check" placeholder={result[0].company_check} onChange={(e)=>setCheck(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <Input type="email" name="email" placeholder={result[0].email} onChange={(e)=>setEmail(e.target.value)}/>
+                                        Email
+                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="email" name="email" placeholder={result[0].email} onChange={(e)=>setEmail(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <Input type="text" name="phone" placeholder={result[0].phone} onChange={(e)=>setPhone(e.target.value)}/>
+                                        Телефон
+                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="phone" placeholder={result[0].phone} onChange={(e)=>setPhone(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <Input type="text" name="company_account" placeholder={result[0].company_account} onChange={(e)=>setAccount(e.target.value)}/>
+                                        Акаунт
+                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="company_account" placeholder={result[0].company_account} onChange={(e)=>setAccount(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <Input type="text" name="is_confirmed" placeholder={result[0].is_confirmed} onChange={(e)=>setIsConfirmed(e.target.value)}/>
+                                        Чи підтверджена
+                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="is_confirmed" placeholder={result[0].is_confirmed} onChange={(e)=>setIsConfirmed(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <Input type="text" name="adress" placeholder={result[0].adress} onChange={(e)=>setAdress(e.target.value)}/>
+                                        Адреса
+                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="adress" placeholder={result[0].adress} onChange={(e)=>setAdress(e.target.value)}/>
                                     </InputGroup>
                                     <CardFooter className="p-4">
                                         <Row>
                                             <Col xs="12" sm="6">
-                                                <Button type="submit" className="btn btn-info mb-1" block><span>Save</span></Button>
+                                                <YellowButton style={{marginBottom: "20px"}} type="submit" block>Save</YellowButton>
                                             </Col>
                                             <Col xs="12" sm="6">
-                                                <Button type="reset" className="btn btn-info mb-1" block><span>Cancel</span></Button>
+                                                <YellowButton type="reset" block>Cancel</YellowButton>
                                             </Col>
                                         </Row>
                                     </CardFooter>

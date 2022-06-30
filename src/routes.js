@@ -17,7 +17,7 @@ import {
     QUEST_ROUTE,
     QUESTS_ROUTE,
     REGISTRATION_ROUTE, SERVICES_ROUTE,
-    USER_LIST_ROUTE
+    USER_LIST_ROUTE, USER_ROUTE
 } from "./utils/consts";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
@@ -28,9 +28,13 @@ import AddingMember from "./pages/AddingMember";
 import QuestId from "./pages/QuestId";
 import Booking from "./pages/Booking";
 import Quest from "./pages/CompanyPanel/Quest";
+import QuestAdmin from "./pages/AdminPanel/Quest";
 import QuestList from "./pages/CompanyPanel/QuestList";
+import QuestListAdmin from "./pages/AdminPanel/QuestList";
 import AddQuest from "./pages/CompanyPanel/AddQuest";
+import AddQuestAdmin from "./pages/AdminPanel/AddQuest";
 import EditQuest from "./pages/CompanyPanel/EditQuest";
+import EditQuestAdmin from "./pages/AdminPanel/EditQuest";
 import CompanyService from "./pages/CompanyPanel/CompanyService";
 import BookingList from "./pages/AdminPanel/BookingList";
 import CompanyList from "./pages/AdminPanel/CompanyList";
@@ -44,6 +48,7 @@ import EditUser from "./pages/AdminPanel/EditUser";
 import Services from "./pages/AdminPanel/Services";
 import Company from "./pages/AdminPanel/Company";
 import BookingA from "./pages/AdminPanel/Booking";
+import User from "./pages/AdminPanel/User";
 export const publicRoutes = [
     {
         path: LOGIN_ROUTE,
@@ -168,19 +173,19 @@ export const adminRoutes = [
     },
     {
         path: QUEST_ROUTE,
-        Component: <Quest/>
+        Component: <QuestAdmin/>
     },
     {
         path: QUEST_LIST_ROUTE,
-        Component: <QuestList/>
+        Component: <QuestListAdmin/>
     },
     {
         path: ADD_QUEST_ROUTE,
-        Component: <AddQuest/>
+        Component: <AddQuestAdmin/>
     },
     {
         path: EDIT_QUEST_ROUTE,
-        Component: <EditQuest/>
+        Component: <EditQuestAdmin/>
     },
     {
         path: COMPANY_SERVICES_ROUTE,
@@ -238,4 +243,8 @@ export const adminRoutes = [
         path: BOOKING_ADMIN_ROUTE,
         Component: <BookingA/>
     },
+    {
+        path: USER_ROUTE,
+        Component: <User/>
+    }
 ]

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Card,CardBody,CardHeader, Col, Row, Table} from 'reactstrap';
 import {NavLink, useNavigate} from "react-router-dom";
 import {EDIT_QUEST_ROUTE} from "../../utils/consts";
+import YellowButton from "../../components/UI/button/YellowButton";
 
 
 
@@ -45,12 +46,12 @@ function QuestList(){
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                "Authorization": "Bearer "+ localStorage.getItem("tok"),
+                "Authorization": "Bearer "+ localStorage.getItem("token"),
             },
         });
         res = await res.json();
         localStorage.setItem("ques", JSON.stringify(res));
-
+        console.log(localStorage.getItem("ques"));
     }
     //debugger;
     getQuests();
@@ -98,13 +99,13 @@ function QuestList(){
                                             <td>{item.price}</td>
                                             <td>
                                                 <row>
-                                                    <button className="btn btn-warning" onClick={()=>editQuest(item.quest_id)}>Edit</button>
+                                                    <YellowButton  style={{width: "80px"}} onClick={()=>editQuest(item.quest_id)}>Edit</YellowButton>
                                                 </row>
                                                 <row>
                                                     -
                                                 </row>
                                                 <row>
-                                                    <button className="btn btn-warning" onClick={()=>callTwoFunctions(item.quest_id)}>Delete</button>
+                                                    <YellowButton style={{width: "80px"}} onClick={()=>callTwoFunctions(item.quest_id)}>Delete</YellowButton>
                                                 </row>
                                             </td>
 

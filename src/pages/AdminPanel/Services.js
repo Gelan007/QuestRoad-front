@@ -8,7 +8,7 @@ import Company from "./Company";
 import Quest from "./Quest";
 import axios from "axios";
 import User from "./User";
-import {BOOKING_ADMIN_ROUTE, COMPANY_ROUTE, QUEST_ROUTE} from "../../utils/consts";
+import {BOOKING_ADMIN_ROUTE, COMPANY_ROUTE, QUEST_ROUTE, USER_ROUTE} from "../../utils/consts";
 
 function Services(props){
 
@@ -89,9 +89,9 @@ function Services(props){
                             <li className="nav-item">
                                 <Link to={BOOKING_ADMIN_ROUTE} className="nav-link">Booking</Link>
                             </li>
-                            {/*<li className="nav-item">*/}
-                            {/*    <Link to={'./User'} className="nav-link">User</Link>*/}
-                            {/*</li>*/}
+                            <li className="nav-item">
+                                <Link to={USER_ROUTE} className="nav-link">User</Link>
+                            </li>
                         </ul>
                     </div>
                 </nav>

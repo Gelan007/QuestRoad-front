@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Card,CardBody,CardHeader, Col, Row, Table} from 'reactstrap';
 import {NavLink, useNavigate} from "react-router-dom";
 import {EDIT_COMPANY_ROUTE} from "../../utils/consts";
+import YellowButton from "../../components/UI/button/YellowButton";
 
 
 
@@ -11,14 +12,20 @@ function CompanyList(){
     const navigate = useNavigate();
 
     async function deleteCompany(id){
-        let res = await fetch("https://localhost:44332/api/Company/" + id, {
-            method: 'DELETE',
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                "Authorization": "Bearer "+ localStorage.getItem("token"),
-            },
-        });
+        try {
+            let res = await fetch("https://localhost:44332/api/Company/" + id, {
+                method: 'DELETE',
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                    "Authorization": "Bearer "+ localStorage.getItem("token"),
+                },
+            });
+            alert("Success!")
+        } catch {
+            alert("Something went wrong");
+        }
+
     }
 
     const editCompany = (id)=>{
@@ -89,17 +96,20 @@ function CompanyList(){
                                             <td>{item.email}</td>
                                             <td>{item.phone}</td>
                                             <td>{item.company_account}</td>
-                                            <td>{item.is_confirmed}</td>
+                                            <td>{String(item.is_confirmed)}</td>
                                             <td>{item.adress}</td>
                                             <td>
                                                 <row>
-                                                    <button className="btn btn-warning" onClick={()=>editCompany(item.company_id)}>Edit</button>
+                                                    <YellowButton style={{width: "80px"}} onClick={()=>editCompany(item.company_id)}>Edit</YellowButton>
                                                 </row>
                                                 <row>
                                                     -
                                                 </row>
                                                 <row>
-                                                    <button className="btn btn-warning" onClick={()=>callTwoFunctions(item.company_id)}>Delete</button>
+                                                    <YellowButton style={{width: "80px"}} onClick={()=>callTwoFunctions(item.company_id)}>Delete</YellowButton>
+                                                </row>
+                                                <row>
+                                                    <span style={{color: "#393737"}}>------</span>
                                                 </row>
                                             </td>
 

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Card,CardBody,CardHeader, Col, Row, Table} from 'reactstrap';
 import {NavLink, useNavigate} from "react-router-dom";
 import {EDIT_BOOKING_ROUTE} from "../../utils/consts";
+import YellowButton from "../../components/UI/button/YellowButton";
 
 
 
@@ -11,14 +12,20 @@ function BookingList(){
     const navigate = useNavigate();
 
     async function deleteBooking(id){
-        let res = await fetch("https://localhost:44332/api/Booking/" + id, {
-            method: 'DELETE',
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                "Authorization": "Bearer "+ localStorage.getItem("token"),
-            },
-        });
+        try {
+            let res = await fetch("https://localhost:44332/api/Booking/" + id, {
+                method: 'DELETE',
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                    "Authorization": "Bearer "+ localStorage.getItem("token"),
+                },
+            });
+            alert("Success!")
+        } catch {
+            alert("Something went wrong");
+        }
+
     }
 
     const editBooking = (id)=>{
@@ -45,7 +52,7 @@ function BookingList(){
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                "Authorization": "Bearer "+ localStorage.getItem("tok"),
+                "Authorization": "Bearer "+ localStorage.getItem("token"),
             },
         });
         res = await res.json();
@@ -72,6 +79,7 @@ function BookingList(){
                                     <th>Quest id</th>
                                     <th>Team id</th>
                                     <th>Price</th>
+                                    <th>Time</th>
                                     <th>Description</th>
                                 </tr>
                                 </thead>
@@ -87,13 +95,13 @@ function BookingList(){
                                             <td>{item.description}</td>
                                             <td>
                                                 <row>
-                                                    <button className="btn btn-warning" onClick={()=>editBooking(item.booking_id)}>Edit</button>
+                                                    <YellowButton onClick={()=>editBooking(item.booking_id)}>Edit</YellowButton>
                                                 </row>
                                                 <row>
                                                     -
                                                 </row>
                                                 <row>
-                                                    <button className="btn btn-warning" onClick={()=>callTwoFunctions(item.booking_id)}>Delete</button>
+                                                    <YellowButton onClick={()=>callTwoFunctions(item.booking_id)}>Delete</YellowButton>
                                                 </row>
                                             </td>
 
