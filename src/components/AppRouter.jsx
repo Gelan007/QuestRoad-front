@@ -1,8 +1,8 @@
-import React, {useContext} from 'react';
+import React, {useContext, Suspense} from 'react';
 import {Redirect, Route, Routes} from "react-router-dom";
 import About from "../pages/About";
 import Registration from "../pages/Registration";
-import {authRoutes, publicRoutes} from "../routes";
+import {adminRoutes, authRoutes, companyRoutes, publicRoutes} from "../routes";
 import {HOME_ROUTE} from "../utils/consts";
 import NotFound from "../pages/NotFound";
 import {Context} from "../index";
@@ -10,6 +10,7 @@ import {Context} from "../index";
 const AppRouter = () => {
     const {user} = useContext(Context);
     return (
+
         <Routes>
             {user.isAuth && authRoutes.map(({path, Component}) =>
                 <Route key={path} path={path} element={Component}/>
@@ -19,8 +20,17 @@ const AppRouter = () => {
                 <Route key={path} path={path} element={Component}/>
             )}
 
+            {user.isAuth && localStorage.getItem("isAdminIn") == 3 && companyRoutes.map(({path, Component}) =>
+                <Route key={path} path={path} element={Component}/>
+            )}
+
+            {user.isAuth && localStorage.getItem("isAdminIn") == 2 && adminRoutes.map(({path, Component}) =>
+                <Route key={path} path={path} element={Component}/>
+            )}
+
             <Route path="*" element={<NotFound/>}/>
         </Routes>
+
     );
 };
 

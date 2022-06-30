@@ -30,3 +30,13 @@ export const getQuestById = async (quest_id) => {
     const response = await $mainHost.get(`api/Quest/${quest_id}`)
     return response.data;
 }
+
+export const createBookingForm = async (Quest_id, teamName, countOfUsers, description, date) => {
+    const response = await $mainAuthHost.post('api/Booking/Form',{Quest_id, teamName, countOfUsers, description, date})
+    return response;
+}
+
+export const getAllQuests = async() => {
+    const response = await $mainHost.get('api/Quest')
+    return response.data;
+}

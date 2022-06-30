@@ -16,6 +16,7 @@
 
 .description {
     list-style-type: none;
+    margin-left: 190px;
 }
 
 .descriptionName {
@@ -33,3 +34,21 @@
     margin-bottom: 15px;
 }
 
+.title {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 36px;
+    text-align: center;
+}
+
+.inputFields {
+    margin-left: 190px;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputText {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 12px;
+}

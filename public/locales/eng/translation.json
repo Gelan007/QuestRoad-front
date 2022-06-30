@@ -1,0 +1,97 @@
+{
+  "about": {
+    "timeToQuest": "Its time to quest",
+    "universalPlatform": "Universal platform with the ability to record, view and add quests",
+    "goTo": "Go to quests"
+  },
+
+  "header": {
+    "main": "Main",
+    "quests": "Quests",
+    "booking": "Booking",
+    "cabinet": "Account",
+    "enter": "SignIn/SignOut"
+  },
+
+  "cabinet": {
+    "userCabinet": "User account",
+    "desc1": "If you invite three friends, you will be given a discount",
+    "desc2": "If four",
+    "desc3": "If 5 or more",
+    "desc4": " To add a friend, enter his unique id (visible in his user account),\n                and the number of the team to which you want to add it. ",
+    "userRecordings": "Your quest entries:",
+    "date": "Date: ",
+    "price": "Price: ",
+    "teamId": "Number (id) of this team: ",
+    "makeBooking": "Reserve",
+    "addMember": "Додати члена команди",
+    "hello": "Good day,",
+    "yourId": "Your unique id: ",
+    "leave": "Log out"
+  },
+
+  "addingMember": {
+    "uniqueNumberMember": "Unique number (id) of the team member you want to add to the team:",
+    "uniqueNumberTeam": "Unique number (id) of the team to which you want to add a team member:",
+    "Add": "Add"
+  },
+
+  "booking": {
+    "quest": "Quest: ",
+    "userCount": "Maximum number of users: ",
+    "price": "Choose a date",
+      "onlineBooking": "Online quest booking",
+    "teamName": "Team name:",
+    "userCountInTeam": "Number of users in the team:",
+    "Description": "Comment",
+    "makeBook": "Book"
+  },
+
+  "login": {
+    "hello": "Welcome to ",
+    "registration": "Don't have an account? Register ",
+    "here": "here",
+    "inputEmail": "Enter your email",
+    "inputPass": "Enter the password",
+    "enter": "Log in"
+  },
+
+  "registration": {
+    "hello": "Welcome to ",
+    "registration": "Do you already have an account? Come in ",
+    "here": "here",
+    "registr": "Register",
+    "enterName": "Enter your name",
+    "enterEmail": "Enter your email",
+    "enterPhone": "Enter the phone number",
+    "enterPassword": "Enter the password"
+  },
+
+  "questId": {
+    "name": "Quest name: ",
+    "count": "Count of actors: ",
+    "price": "Price: ",
+    "desc": "Description: ",
+    "address": "Address: ",
+    "maxCount": "Maximum count of players: ",
+    "city": "City: ",
+    "category": "Category: ",
+    "book": "Book: ",
+    "difficulty_level": "Difficult level: "
+  },
+
+  "quest": {
+    "title": "List of all quests",
+    "name": "The name of the quest: ",
+    "count": "Number of actors: ",
+    "price": "Price: ",
+    "desc": "Description: ",
+    "address": "Address: ",
+    "maxCount": "Maximum number of players: ",
+    "city": "City: ",
+    "category": "Category: ",
+    "book": "Book: ",
+    "difficulty_level": "Difficult level: "
+  }
+
+}

@@ -8,6 +8,9 @@ import {ADDING_MEMBER_ROUTE, LOGIN_ROUTE, QUESTS_ROUTE} from "../utils/consts";
 import {observer} from "mobx-react-lite";
 import YellowButton from "../components/UI/button/YellowButton";
 
+import {useTranslation} from "react-i18next";
+import "../utils/i18next";
+
 const Account = observer(() => {
     const [bookings, setBookings] = useState([]);
     const [userInfo, setUserInfo] = useState([]);
@@ -15,11 +18,15 @@ const Account = observer(() => {
     const [questsName, setQuestsName] = useState([]);
     const navigate = useNavigate();
     const {user} = useContext(Context);
+    const {t} = useTranslation();
 
         useEffect(   () => {
             getUserBooking();
             getUserInfo();
             getQuest();
+            localStorage.removeItem("isAdminIn");
+            localStorage.removeItem("companyId");
+
     }, [])
 
 
@@ -32,6 +39,9 @@ const Account = observer(() => {
     async function getUserInfo() {
         await getUserAccountInfo().then((res) => {
             setUserInfo(res);
+            localStorage.setItem("userName", res.name);
+            localStorage.setItem("isAdminIn", res.role);
+            localStorage.setItem("companyId", res.company_id);
         })
     }
     async function getQuest() {
@@ -63,53 +73,52 @@ const Account = observer(() => {
     return (
         <div>
             <div className={s.title}>
-                Особистий кабінет користувача
+                {t("cabinet.userCabinet")}
             </div>
             <div className={s.titleDescription}>
-                Якщо Ви запросите трьох друзів, то Вам надасться знижка <span className={s.yellow}>5%</span>.
-                Якщо чотирьох - <span className={s.yellow}>10%</span>. Якщо 5 та більше - <span className={s.yellow}>15%</span>.
-                Для того, щоб додати друга, введіть його унікальний id(видно в його кабінеті користувача),
-                та номер команди, до якої ви бажаєте його додати.
+                {t("cabinet.desc1")} <span className={s.yellow}>5%</span>.
+                {t("cabinet.desc2")} - <span className={s.yellow}>10%</span>. {t("cabinet.desc3")} - <span className={s.yellow}>15%</span>.
+                {t("cabinet.desc4")}
             </div>
             <div className={s.mainBlock}>
                 <div className={s.leftPart}>
                     <div className={s.recordsTitle}>
-                        Ваші записи на квести:
+                        {t("cabinet.userRecordings")}
                     </div>
                     <div className={s.dataAndPrice}>
                         {
                         bookings.map((item, idx) =>{
                         return <ul key={idx}>
-                            <li  style={{paddingLeft:"15px"}}>Дата: {item.time}</li>
-                            <li style={{paddingLeft:"15px"}}>Ціна: {item.price} грн</li>
-                            <li style={{paddingLeft:"15px"}}>Номер(id) цієї команди: {item.team_id}</li>
+                            <li  style={{paddingLeft:"15px"}}> {t("cabinet.date")} {item.time}</li>
+                            <li style={{paddingLeft:"15px"}}>{t("cabinet.price")} {item.price} грн</li>
+                            <li style={{paddingLeft:"15px"}}>{t("cabinet.teamId")} {item.team_id}</li>
                             <div className={s.space}></div>
                         </ul>
                     })
                     }
                     </div>
                     <BigGreenButton style={{width: "160px", height:"45px", fontSize: "15px"}} onClick={() => navigate(QUESTS_ROUTE)}>
-                        Забронювати
+                        {t("cabinet.makeBooking")}
                     </BigGreenButton>
                 </div>
                 <YellowButton style={{marginTop:"auto", fontSize:"13px", fontWeight: "600"}}
                               onClick={() => navigate(ADDING_MEMBER_ROUTE)}>
-                    Додати члена команди
+                    {t("cabinet.addMember")}
                 </YellowButton>
                 <div className={s.rightPart}>
                     <div className={s.rightTitle}>
-                        <span className={s.rightTitleHello}>Доброго дня,</span>
+                        <span className={s.rightTitleHello}>{t("cabinet.hello")}</span>
                         <span className={s.userName}> {userInfo.name}</span>
                         <div className={s.userEmail}>
                             {userInfo.email}
                         </div>
                         <div className={s.userId}>
-                            Ваш унікальний id: <span className={s.id}>{userInfo.user_id}</span>
+                            {t("cabinet.yourId")} <span className={s.id}>{userInfo.user_id}</span>
                         </div>
                     </div>
 
                     <BigGreenButton style={{width: "160px", height:"45px", fontSize: "15px", marginLeft: "auto"}} onClick={logout}>
-                        Вийти з акаунту
+                        {t("cabinet.leave")}
                     </BigGreenButton>
                 </div>
             </div>
