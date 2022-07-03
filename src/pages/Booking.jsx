@@ -44,7 +44,6 @@ const Booking = () => {
     }
 
 
-
     return (
         <div>
             <div className={s.mainTitle}>

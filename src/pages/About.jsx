@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from "../components/UI/Navbar/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import "./styles/About.css";
 import doctor from "../img/Twelth_Doctor 1.png";
 import spider from "../img/spider-man 1.png";

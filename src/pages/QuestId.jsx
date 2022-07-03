@@ -14,6 +14,7 @@ import "../utils/i18next";
 const QuestId = observer(() => {
     const params = useParams();
     const [quest, setQuest] = useState([]);
+    const [questPhoto, setQuestPhoto] = useState(null);
     const {user} = useContext(Context);
     const navigate = useNavigate();
     const {t} = useTranslation();
@@ -27,6 +28,7 @@ const QuestId = observer(() => {
     async function getQuest(){
         await getQuestById(parseInt(params.id)).then((res) => {
             setQuest(res);
+            setQuestPhoto(res.photo);
         })
     }
 

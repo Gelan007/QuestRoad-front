@@ -1,4 +1,4 @@
-import Navbar from "./components/UI/Navbar/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import "./styles/App.css"
 import About from "./pages/About";
 import AppRouter from "./components/AppRouter";

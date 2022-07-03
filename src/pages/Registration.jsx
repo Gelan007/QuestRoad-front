@@ -1,5 +1,5 @@
 import React , {useState} from 'react';
-import Navbar from "../components/UI/Navbar/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import s from "./styles/RegistrationAndLogin.module.css";
 import {LOGIN_ROUTE} from "../utils/consts";
 import YellowInput from "../components/UI/input/YellowInput";

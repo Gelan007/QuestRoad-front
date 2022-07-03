@@ -1,13 +1,13 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {Link, NavLink} from "react-router-dom";
 import s from "./Navbar.module.css";
-import logo from "../../../img/logo.png";
-import account from "../../../img/account.png";
-import {Context} from "../../../index";
+import logo from "../../img/logo.png";
+import account from "../../img/account.png";
+import {Context} from "../../index";
 import {observer} from "mobx-react-lite";
-import {ACCOUNT_ROUTE, HOME_ROUTE, LOGIN_ROUTE, QUESTS_ROUTE, RIGHTS_ROUTE} from "../../../utils/consts";
+import {ACCOUNT_ROUTE, HOME_ROUTE, LOGIN_ROUTE, QUESTS_ROUTE, RIGHTS_ROUTE} from "../../utils/consts";
 import {useTranslation} from "react-i18next";
-import  "../../../utils/i18next";
+import  "../../utils/i18next";
 
 const Navbar = observer(() => {
 
