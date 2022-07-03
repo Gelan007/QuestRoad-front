@@ -12,98 +12,32 @@ import {useTranslation} from "react-i18next";
 import "../utils/i18next";
 import QuestCard from "../components/QuestCard";
 
-// const useStyles = makeStyles((theme) => ({
-//
-//     title: {
-//         flexGrow: 1
-//     },
-//     mainFeaturePost:{
-//         position: "relative",
-//         color: theme.palette.common.white,
-//         marginBottom: theme.spacing(4),
-//
-//         backgroundSize: "cover",
-//         backgroundRepeat: "no-repeat",
-//         backgroundPosition: "center"
-//     },
-//     mainFeaturePostContent:{
-//         position: "relative",
-//         padding: theme.spacing(3)
-//     },
-//     cardMedia:{
-//         paddingTop:"56.25%"
-//     },
-//     cardContent: {
-//         flexGrow: 1,
-//         backgroundColor: '#757575'
-//     },
-//     cardGrid:{
-//         marginTop: theme.spacing(4)
-//     }
-// }))
-
 const Quests = () => {
 
     const navigate = useNavigate();
     const {t} = useTranslation();
     const [quests, setQuests] = useState([]);
-    const mass = {
-        name: "Квест 1",
-        city: "Харьков",
-        address: "Бакулина1",
-        maxCount: 5,
-        price: 450,
-        category: "Для детей",
-        difficult: "Легко",
-        photo: "2.jpg"
-    };
-
 
     useEffect(() => {
         getQuests();
     })
     async function getQuests(){
-        // let res = await fetch("https://localhost:44332/api/Quest/Popular", {
-        //     method: 'GET',
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //         "Accept": "application/json",
-        //         "Authorization": "Bearer "+ localStorage.getItem("token"),
-        //     },
-        // });
-        let res = await getAllQuests().then((res) => {
+       await getAllQuests().then((res) => {
             setQuests(res);
         })
-
-        // res = await res.json();
-        // // Установка в localStorage всех данных о квесте в формате массива
-        // let names = [];
-        // for(var i in res ){
-        //     names[i] = res[i];
-        // }
-        // localStorage.setItem("quests", JSON.stringify(names));
-        // console.log(localStorage.getItem("quests"));
     }
-
-    // getQuests();
-    var items = JSON.parse(localStorage.getItem("quests"));
-    // const classes = useStyles();
-
-
-
-    function setStateQuestId(id){
-        localStorage.setItem("questId", id);
-    }
-
-
 
     return (
         <div className={s.container}>
-            <Container maxWidth="md" style={{marginTop: "50px"}} >
-                <Grid container spacing={4} >
+            <Container maxWidth="md" style={{marginTop: "50px"}}>
+                <Container maxWidth="md">
+                    <Typography variant="h2" align="center" color="primary" gutterBottom style={{color: 'white'}}>QuestRoad service</Typography>
+                    <Typography variant="h5" align="center" color="secondary" paragraph style={{color: 'white'}}>  {t("quest.title")}</Typography>
+                </Container>
+
+                <Grid container spacing={4} style={{marginTop: "20px"}}>
             {quests.map((card) => (
                 <Grid item xs={12} sm={6} md={4}>
-
                     <QuestCard
                         onClick={() => navigate((`/quests/${parseInt(card.quest_id)}`))} style={{cursor:"pointer"}}
                         name={card.name}
