@@ -55,7 +55,7 @@ const Booking = () => {
                     <span className={s.descriptionName}>{t("booking.userCount")} </span> <span className={s.descriptionValue}>{quest.max_count_users}</span>
                 </li>
                 <li className={s.li}>
-                    <span className={s.descriptionName}>{t("booking.price")} </span> <span className={s.descriptionValue}>{quest.price}</span>
+                    <span className={s.descriptionName}>{t("booking.price")} </span> <span className={s.descriptionValue}>{quest.price} грн </span>
                 </li>
             </ul>
 
