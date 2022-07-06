@@ -11,12 +11,14 @@ import s from './styles/Quests.module.css';
 import {useTranslation} from "react-i18next";
 import "../utils/i18next";
 import QuestCard from "../components/QuestCard";
+import MySelect from "../components/UI/select/MySelect";
 
 const Quests = () => {
 
     const navigate = useNavigate();
     const {t} = useTranslation();
     const [quests, setQuests] = useState([]);
+    const [selectedSort, setSelectedSort] = useState('');
 
     useEffect(() => {
         getQuests();
@@ -24,8 +26,17 @@ const Quests = () => {
     async function getQuests(){
        await getAllQuests().then((res) => {
             setQuests(res);
-        })
+        });
+       if(selectedSort != ''){
+           setQuests([...quests].sort((a, b) => String(a[selectedSort]).localeCompare(String(b[selectedSort]))));
+           console.log(selectedSort)
+       }
     }
+
+     const sortQuests = (sort) => {
+        setSelectedSort(sort);
+    }
+
 
     return (
         <div className={s.container}>
@@ -34,7 +45,16 @@ const Quests = () => {
                     <Typography variant="h2" align="center" color="primary" gutterBottom style={{color: 'white'}}>QuestRoad service</Typography>
                     <Typography variant="h5" align="center" color="secondary" paragraph style={{color: 'white'}}>  {t("quest.title")}</Typography>
                 </Container>
-
+                <MySelect
+                    value={selectedSort}
+                    onChange={sortQuests}
+                    defaultValue="Сортировка по:"
+                    options={[
+                        {value: 'name', name: 'Назва'},
+                        {value: 'price', name: 'Ціна'},
+                        {value: 'category', name: 'Категорія'}
+                    ]}
+                />
                 <Grid container spacing={4} style={{marginTop: "20px"}}>
             {quests.map((card) => (
                 <Grid item xs={12} sm={6} md={4}>
