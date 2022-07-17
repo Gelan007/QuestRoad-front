@@ -1,0 +1,92 @@
+.mainBlock div {
+    background-color: #757575;
+}
+.title {
+    font-weight: 700;
+    font-size: 20px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.mainBlock {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px auto;
+    width: 890px;
+    padding: 30px 50px;
+    border-radius: 59px;
+    background-color: #757575;
+}
+
+.recordsTitle {
+    background-color: #757575;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.rightTitleHello {
+    background-color: #757575;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+
+.dataAndPrice {
+
+    display: flex;
+    flex-flow: column nowrap;
+
+}
+
+.dataAndPrice li {
+    background-color: #757575;
+    list-style-type: none;
+}
+
+.space {
+    padding-bottom: 20px;
+}
+
+.userName {
+    font-weight: 700;
+    font-size: 16px;
+    background-color: #757575;
+}
+
+
+
+.userEmail {
+    background-color: #757575;
+    font-weight: 400;
+    font-size: 14px;
+    color: #67FFD1;
+    text-align: center;
+    margin-top: 5px;
+
+}
+
+.rightPart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.userId {
+    margin-top: 10px;
+}
+
+.id {
+    background-color: #757575;
+    font-weight: 600;
+    color: #67FFD1;
+}
+
+.titleDescription {
+    text-align: center;
+    line-height: 1.6;
+}
+
+.yellow {
+    color: #E2DD5C;
+}

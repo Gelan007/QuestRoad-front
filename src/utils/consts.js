@@ -4,3 +4,27 @@ export const REGISTRATION_ROUTE = "/registration";
 export const HOME_ROUTE = "/";
 export const QUESTS_ROUTE = "/quests";
 export const ACCOUNT_ROUTE = "/account";
+export const RIGHTS_ROUTE = "/rights";
+export const ADDING_MEMBER_ROUTE = "/addingMembers";
+export const QUEST_ID_ROUTE = "/quests/:id";
+export const BOOKING_ROUTE = "/booking";
+export const QUEST_LIST_ROUTE = "/QuestList";
+export const QUEST_ROUTE = "/Quest";
+export const ADD_QUEST_ROUTE = "/AddQuest";
+export const EDIT_QUEST_ROUTE = "/EditQuest";
+export const COMPANY_SERVICES_ROUTE = "/companyServices";
+export const BOOKING_LIST_ROUTE = "/BookingList";
+export const COMPANY_LIST_ROUTE = "/CompanyList";
+export const USER_LIST_ROUTE = "/UserList";
+export const ADD_BOOKING_ROUTE = "/AddBooking";
+export const EDIT_BOOKING_ROUTE = "/EditBooking";
+export const ADD_COMPANY_ROUTE = "/AddCompany";
+export const EDIT_COMPANY_ROUTE = "/EditCompany";
+export const ADD_USER_ROUTE = "/AddUser";
+export const EDIT_USER_ROUTE = "/EditUser";
+export const COMPANY_ROUTE = "/Company";
+export const BOOKING_ADMIN_ROUTE = "/BookingA";
+export const SERVICES_ROUTE = "/services";
+export const USER_ROUTE = "/User";
+
+

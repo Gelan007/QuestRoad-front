@@ -1,35 +1,62 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import s from "./styles/RegistrationAndLogin.module.css";
-import {Link} from "react-router-dom";
-import {LOGIN_ROUTE, REGISTRATION_ROUTE} from "../utils/consts";
+import {Link, useNavigate} from "react-router-dom";
+import {ACCOUNT_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE} from "../utils/consts";
 import YellowInput from "../components/UI/input/YellowInput";
 import YellowButton from "../components/UI/button/YellowButton";
 import questPicture from "../img/квест 1.png";
 
-const Login = () => {
+import {login} from "../http/userAPI";
+import {observer} from "mobx-react-lite";
+import {Context} from "../index";
+
+import {useTranslation} from "react-i18next";
+import "../utils/i18next";
+import {getUserAccountInfo} from "../http/mainAPI";
+
+
+const Login = observer(() => {
+    const {user} = useContext(Context);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+    const {t} = useTranslation();
+
+    const signIn = async () => {
+        try {
+            const response = await login(email, password)
+            user.setUser(response);
+            user.setIsAuth(true)
+            navigate(ACCOUNT_ROUTE);
+        } catch {
+            alert("Пошта чи пароль введі не вірно")
+        }
+    }
+
+
     return (
         <div className={s.container}>
             <div className={s.leftBlock}>
                 <div className={s.greetings}>
                     <div className={s.greetingsTitle}>
-                        Вітаємо Вас в <span className={s.greetingsTitleLogo}> QuestRoad </span>
+                        {t("login.hello")} <span className={s.greetingsTitleLogo}> QuestRoad </span>
                     </div>
                     <div className={s.greetingsText}>
-                        У Вас немає облікового запису? Зареєструйтесь <Link to={REGISTRATION_ROUTE} className={s.greetingsLink}>тут</Link>
+                        {t("login.registration")} <Link to={REGISTRATION_ROUTE} className={s.greetingsLink}>{t("login.here")}</Link>
                     </div>
                 </div>
                 <div className={s.registration}>
                     <div className={s.registrationTitle}>
-                        Увійти
+                        {t("login.enter")}
                     </div>
                     <div className={s.inputFields}>
-                        <p className={s.inputText}>Введіть електронну скриньку</p>
-                        <YellowInput style={{marginBottom: '28px'}}/>
-                        <p className={s.inputText}>Введіть пароль</p>
-                        <YellowInput type="password"/>
+                        <p className={s.inputText}>{t("login.inputEmail")}</p>
+                        <YellowInput style={{marginBottom: '28px'}} value={email} onChange={e => setEmail(e.target.value)}/>
+                        <p className={s.inputText}>{t("login.inputPass")}</p>
+                        <YellowInput type="password" value={password} onChange={e => setPassword(e.target.value)}/>
                     </div>
-                    <YellowButton>
-                        Увійти
+                    <YellowButton onClick={signIn}>
+                        {t("login.enter")}
                     </YellowButton>
                 </div>
             </div>
@@ -38,6 +65,6 @@ const Login = () => {
             </div>
         </div>
     );
-};
+});
 
 export default Login;
