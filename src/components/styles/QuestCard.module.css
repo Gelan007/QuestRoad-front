@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    width: 100%;
+    background-color: #393737;
+}
+
+.card {
+    width: 300px;
+    min-height: 480px;
+    max-height: 600px;
+    background-color: #757575;
+    border-radius: 10px;
+}
+
+.pictureBlock {
+    display: inline-block;
+    max-height: 210px;
+    background: linear-gradient(#393737, #757575);
+}
+
+.pictureBlock img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+
+}
+
+.descriptionBlock {
+    display: flex;
+    padding: 15px 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #757575;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.description div{
+    background-color: #757575;
+    padding-bottom: 10px;
+}
+
+.name {
+    background-color: #757575;
+    font-weight: 600;
+}
