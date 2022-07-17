@@ -12,6 +12,32 @@ import  "../../utils/i18next";
 const Navbar = observer(() => {
 
     const {user} = useContext(Context);
+    const [isActiveUABtn, setIsActiveUABtn] = useState(true);
+    const [isActiveENGBtn, setIsActiveENGBtn] = useState(false);
+    const {i18n} = useTranslation();
+    const {t} = useTranslation();
+
+    useEffect(() => {
+        if(isActiveUABtn){
+            i18n.changeLanguage('ua');
+        }
+        if(isActiveUABtn){
+            i18n.changeLanguage('ua');
+        }
+    }, [isActiveUABtn, isActiveENGBtn]);
+
+
+    function changeLanguageAndActiveStateForUABtn(lang) {
+        setIsActiveUABtn(true);
+        setIsActiveENGBtn(false);
+        i18n.changeLanguage(lang);
+    }
+
+    function changeLanguageAndActiveStateForENGBtn(lang) {
+        setIsActiveENGBtn(true);
+        setIsActiveUABtn(false);
+        i18n.changeLanguage(lang);
+    }
 
     function isCompany(){
         if(localStorage.getItem("isAdminIn")== 3){
@@ -27,9 +53,9 @@ const Navbar = observer(() => {
         }
     }
 
+
     function isAdmin(){
-        if(localStorage.getItem("isAdminIn")== "2"){
-            console.log(localStorage.getItem("isAdminIn"));
+        if(localStorage.getItem("isAdminIn")== 2) {
             return (
                 <NavLink
                     className={({isActive}) => (isActive ? s.link + " " + s.active : s.link)}
@@ -42,12 +68,6 @@ const Navbar = observer(() => {
         }
     }
 
-    const {i18n} = useTranslation();
-    const {t} = useTranslation();
-
-    const changeLanguage = (lang) => {
-        i18n.changeLanguage(lang);
-    };
 
 
     return (
@@ -56,7 +76,6 @@ const Navbar = observer(() => {
                 <Link to={HOME_ROUTE} className={s.logo}><img src={logo} alt="QR"/></Link>
                 <Link to={HOME_ROUTE} className={s.logoText}>QuestRoad</Link>
             </div>
-            {user.isAuth ?
                 <ul className={s.navbarUl}>
                     <li className={s.li}><NavLink to={HOME_ROUTE}
                                                   className={({isActive}) => (isActive ? s.first + " " + s.link + " " + s.active : s.first + " " + s.link)}>
@@ -76,28 +95,13 @@ const Navbar = observer(() => {
                         {isAdmin()}
                     </li>
                 </ul>
-                :
-                <ul className={s.navbarUl}>
-                    <li className={s.li}><NavLink to={HOME_ROUTE}
-                                                  className={({isActive}) => (isActive ? s.first + " " + s.link + " " + s.active : s.first + " " + s.link)}>
-                        {t("header.main")}
-                    </NavLink>
-                    </li>
-                    <li className={s.li}><NavLink to={QUESTS_ROUTE}
-                                                  className={({isActive}) => (isActive ? s.link + " " + s.active : s.link)}>
-                        {t("header.quests")}
-                    </NavLink>
-                    </li>
-
-                </ul>
-            }
 
                 <a href="tel:380958754120" className={s.number} >
                     +380-95-87-54-120
                 </a>
             <div style={{marginLeft: "30px"}}>
-                <button onClick={() => changeLanguage("ua")} id="uaCss" style={{cursor: "pointer", marginRight:"5px"}}>UA</button>
-                <button onClick={() => changeLanguage("eng")} style={{cursor: "pointer"}}>ENG</button>
+                <button onClick={() => changeLanguageAndActiveStateForUABtn("ua")} className={(isActiveUABtn ? s.languageActive : s.language)}>UA</button>
+                <button onClick={() => changeLanguageAndActiveStateForENGBtn("eng")} style={{marginLeft:'4px'}} className={(isActiveENGBtn ? s.languageActive : s.language)}>ENG</button>
             </div>
 
             {user.isAuth ?

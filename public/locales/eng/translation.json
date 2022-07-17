@@ -24,10 +24,11 @@
     "price": "Price: ",
     "teamId": "Number (id) of this team: ",
     "makeBooking": "Reserve",
-    "addMember": "Додати члена команди",
-    "hello": "Good day,",
+    "addMember": "Add team member",
+    "hello": "Hello,",
     "yourId": "Your unique id: ",
-    "leave": "Log out"
+    "leave": "Log out",
+    "empty": "You are not registered for any quest"
   },
 
   "addingMember": {

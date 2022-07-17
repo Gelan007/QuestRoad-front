@@ -12,6 +12,7 @@ import {Context} from "../index";
 
 import {useTranslation} from "react-i18next";
 import "../utils/i18next";
+import {getUserAccountInfo} from "../http/mainAPI";
 
 
 const Login = observer(() => {
@@ -21,18 +22,17 @@ const Login = observer(() => {
     const navigate = useNavigate();
     const {t} = useTranslation();
 
-    const signOut = async () => {
+    const signIn = async () => {
         try {
             const response = await login(email, password)
             user.setUser(response);
             user.setIsAuth(true)
             navigate(ACCOUNT_ROUTE);
-            console.log(user.isAuth)
         } catch {
             alert("Пошта чи пароль введі не вірно")
         }
-
     }
+
 
     return (
         <div className={s.container}>
@@ -55,7 +55,7 @@ const Login = observer(() => {
                         <p className={s.inputText}>{t("login.inputPass")}</p>
                         <YellowInput type="password" value={password} onChange={e => setPassword(e.target.value)}/>
                     </div>
-                    <YellowButton onClick={signOut}>
+                    <YellowButton onClick={signIn}>
                         {t("login.enter")}
                     </YellowButton>
                 </div>

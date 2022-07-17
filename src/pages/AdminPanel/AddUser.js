@@ -16,8 +16,6 @@ function AddUser(){
     const [company_id, setCompanyId] = useState("");
     const navigate = useNavigate();
 
-
-
     async function createUser(e) {
         e.preventDefault();
         let res = await fetch("https://localhost:44379/api/User/Registration", {
@@ -47,22 +45,22 @@ function AddUser(){
                                 <Form onSubmit={createUser}>
                                     <h1>Add New</h1>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="email" placeholder="email" onChange={(e)=>setEmail(e.target.value)}/>
+                                        <YellowInput style={{marginBottom: "25px"}} type="text" name="email" placeholder="email" onChange={(e)=>setEmail(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="phone" placeholder="phone" onChange={(e)=>setPhone(e.target.value)}/>
+                                        <YellowInput style={{ marginBottom: "25px"}} type="text" name="phone" placeholder="phone" onChange={(e)=>setPhone(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="password" placeholder="password" onChange={(e)=>setPassword(e.target.value)}/>
+                                        <YellowInput style={{marginBottom: "25px"}} type="text" name="password" placeholder="password" onChange={(e)=>setPassword(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="name" placeholder="name" onChange={(e)=>setName(e.target.value)}/>
+                                        <YellowInput style={{ marginBottom: "25px"}} type="text" name="name" placeholder="name" onChange={(e)=>setName(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="role" placeholder="role" onChange={(e)=>setRole(e.target.value)}/>
+                                        <YellowInput style={{ marginBottom: "25px"}} type="text" name="role" placeholder="role" onChange={(e)=>setRole(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "50px"}} type="text" name="company_id" placeholder="company id" onChange={(e)=>setCompanyId(e.target.value)}/>
+                                        <YellowInput style={{  marginBottom: "50px"}} type="text" name="company_id" placeholder="company id" onChange={(e)=>setCompanyId(e.target.value)}/>
                                     </InputGroup>
 
 

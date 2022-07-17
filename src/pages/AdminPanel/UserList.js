@@ -10,9 +10,8 @@ import YellowButton from "../../components/UI/button/YellowButton";
 
 function UserList(){
     const navigate = useNavigate();
-
     async function deleteUser(id){
-        let res = await fetch("https://localhost:44379/api/User/" + id, {
+        await fetch("https://localhost:44379/api/User/" + id, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",
@@ -24,23 +23,12 @@ function UserList(){
 
     const editUser = (id)=>{
         localStorage.setItem("UserId",id);
-
         navigate({
             pathname : EDIT_USER_ROUTE
         })
-
     }
-
-
-
-    function callTwoFunctions(id){
-        deleteUser(id);
-        getUsers();
-    }
-
 
     async function getUsers(){
-
         let res = await fetch("https://localhost:44379/api/User", {
             method: 'GET',
             headers: {
@@ -51,8 +39,17 @@ function UserList(){
         });
         res = await res.json();
         localStorage.setItem("use", JSON.stringify(res));
-
     }
+
+
+
+    function callTwoFunctions(id){
+        deleteUser(id);
+        getUsers();
+    }
+
+
+
     //debugger;
     getUsers();
 

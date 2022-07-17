@@ -58,31 +58,31 @@ function AddCompany(){
                                     <h1>Add New</h1>
                                     <InputGroup className="mb-3">
                                         Назва
-                                        <YellowInput  style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="name" placeholder="Name" onChange={(e)=>setName(e.target.value)}/>
+                                        <YellowInput  style={{ marginBottom: "20px"}} type="text" name="name" placeholder="Name" onChange={(e)=>setName(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
                                         Чек
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="company_check" placeholder="Check" onChange={(e)=>setCheck(e.target.value)}/>
+                                        <YellowInput style={{marginBottom: "20px"}} type="text" name="company_check" placeholder="Check" onChange={(e)=>setCheck(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
                                         Email
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="email" name="email" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
+                                        <YellowInput style={{marginBottom: "20px"}} type="email" name="email" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
                                         Номер телефону
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="phone" placeholder="Phone" onChange={(e)=>setPhone(e.target.value)}/>
+                                        <YellowInput style={{  marginBottom: "20px"}} type="text" name="phone" placeholder="Phone" onChange={(e)=>setPhone(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
                                         Акаунт
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="company_account" placeholder="Account" onChange={(e)=>setAccount(e.target.value)}/>
+                                        <YellowInput style={{marginBottom: "20px"}} type="text" name="company_account" placeholder="Account" onChange={(e)=>setAccount(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
                                         Чи підтверджена
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="is_confirmed" placeholder="Confirmed" onChange={(e)=>setIsConfirmed(e.target.value)}/>
+                                        <YellowInput style={{marginBottom: "20px"}} type="text" name="is_confirmed" placeholder="Confirmed" onChange={(e)=>setIsConfirmed(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
                                         Адреса
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "50px"}} type="text" name="adress" placeholder="Address" onChange={(e)=>setAdress(e.target.value)}/>
+                                        <YellowInput style={{ marginBottom: "50px"}} type="text" name="adress" placeholder="Address" onChange={(e)=>setAdress(e.target.value)}/>
                                     </InputGroup>
 
 

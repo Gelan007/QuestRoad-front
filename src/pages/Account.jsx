@@ -24,11 +24,8 @@ const Account = observer(() => {
             getUserBooking();
             getUserInfo();
             getQuest();
-            localStorage.removeItem("isAdminIn");
-            localStorage.removeItem("companyId");
 
     }, [])
-
 
     async function getUserBooking() {
         await getUserBookings().then((res) => {
@@ -44,31 +41,21 @@ const Account = observer(() => {
             localStorage.setItem("companyId", res.company_id);
         })
     }
+
     async function getQuest() {
         await getUserQuests().then((res) => {
             setQuests(res);
         })
     }
 
-    // function getQuestName () {
-    //         let temp = 0;
-    //         for (let i = 0; i < quests.length; i++) {
-    //             for(let j = 0; j < bookings.length; j++){
-    //                 if(quests[i].quest_id == bookings[j].quest_id){
-    //                     // setQuestsName([...questsName, quests[i].name])
-    //                 }
-    //             }
-    //         }
-    // }
-
     function logout() {
         user.setUser({})
         user.setIsAuth(false)
         localStorage.removeItem('token');
+        localStorage.removeItem("isAdminIn");
+        localStorage.removeItem("companyId");
         navigate(LOGIN_ROUTE);
     }
-    // console.log(userInfo)
-    // console.log(bookings)
 
     return (
         <div>
@@ -86,7 +73,7 @@ const Account = observer(() => {
                         {t("cabinet.userRecordings")}
                     </div>
                     <div className={s.dataAndPrice}>
-                        {
+                        {bookings.length != 0 ?
                         bookings.map((item, idx) =>{
                         return <ul key={idx}>
                             <li  style={{paddingLeft:"15px"}}> {t("cabinet.date")} {item.time}</li>
@@ -94,7 +81,8 @@ const Account = observer(() => {
                             <li style={{paddingLeft:"15px"}}>{t("cabinet.teamId")} {item.team_id}</li>
                             <div className={s.space}></div>
                         </ul>
-                    })
+                    }) :
+                        <div style={{marginBottom: '20px'}}>{t("cabinet.empty")}</div>
                     }
                     </div>
                     <BigGreenButton style={{width: "160px", height:"45px", fontSize: "15px"}} onClick={() => navigate(QUESTS_ROUTE)}>

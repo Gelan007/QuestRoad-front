@@ -62,34 +62,44 @@ function AddQuest(){
                                 <Form onSubmit={createQuest}>
                                     <h1>Add New</h1>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="name" placeholder="Name" onChange={(e)=>setName(e.target.value)}/>
+                                        Назва
+                                        <YellowInput style={{marginBottom: "25px"}} type="text" name="name" placeholder="Name" onChange={(e)=>setName(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="description" placeholder="Description" onChange={(e)=>setDescription(e.target.value)}/>
+                                        Опис
+                                        <YellowInput style={{marginBottom: "25px"}} type="text" name="description" placeholder="Description" onChange={(e)=>setDescription(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="difficulty_level" placeholder="Difficulty_level" onChange={(e)=>setDifficulty_level(e.target.value)}/>
+                                        Рівень складності
+                                        <YellowInput style={{ marginBottom: "25px"}} type="text" name="difficulty_level" placeholder="Difficulty_level" onChange={(e)=>setDifficulty_level(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="city" placeholder="City" onChange={(e)=>setCity(e.target.value)}/>
+                                        Город
+                                        <YellowInput style={{ marginBottom: "25px"}} type="text" name="city" placeholder="City" onChange={(e)=>setCity(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="address" placeholder="Address" onChange={(e)=>setAdress(e.target.value)}/>
+                                        Адреса
+                                        <YellowInput style={{marginBottom: "25px"}} type="text" name="address" placeholder="Address" onChange={(e)=>setAdress(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="category" placeholder="Category" onChange={(e)=>setCategory(e.target.value)}/>
+                                        Категорія
+                                        <YellowInput style={{marginBottom: "25px"}} type="text" name="category" placeholder="Category" onChange={(e)=>setCategory(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="actors" placeholder="Actors" onChange={(e)=>setActors(e.target.value)}/>
+                                        Кількість акторів
+                                        <YellowInput style={{marginBottom: "25px"}} type="text" name="actors" placeholder="Actors" onChange={(e)=>setActors(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="company_id" placeholder="Company_id" onChange={(e)=>setCompany_id(e.target.value)}/>
+                                        Id компанії
+                                        <YellowInput style={{marginBottom: "25px"}} type="text" name="company_id" placeholder="Company_id" onChange={(e)=>setCompany_id(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="max_count_users" placeholder="Max_count_users" onChange={(e)=>setMax_count_users(e.target.value)}/>
+                                        Максимальна кількість користувачів
+                                        <YellowInput style={{marginBottom: "25px"}} type="text" name="max_count_users" placeholder="Max_count_users" onChange={(e)=>setMax_count_users(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "50px"}} type="text" name="price" placeholder="Price" onChange={(e)=>setPice(e.target.value)}/>
+                                        Ціна
+                                        <YellowInput style={{ marginBottom: "50px"}} type="text" name="price" placeholder="Price" onChange={(e)=>setPice(e.target.value)}/>
                                     </InputGroup>
 
 

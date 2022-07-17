@@ -17,9 +17,8 @@ const App = observer(() => {
             user.setIsAuth(true)
         }
     },[])
-    console.log(user.isAuth)
-  return (
 
+  return (
       <div className="App">
           <Suspense fallback={<Registration/>}>
           <Navbar/>

@@ -3,7 +3,7 @@ import jwt_decode from "jwt-decode";
 
 export const getPopularQuests = async () => {
     const response = await $mainHost.get('api/Quest/Popular')
-    return response;
+    return response.data;
 }
 
 export const getUserAccountInfo = async () => {

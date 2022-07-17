@@ -10,7 +10,6 @@ import {Context} from "../index";
 const AppRouter = () => {
     const {user} = useContext(Context);
     return (
-
         <Routes>
             {user.isAuth && authRoutes.map(({path, Component}) =>
                 <Route key={path} path={path} element={Component}/>
@@ -30,7 +29,6 @@ const AppRouter = () => {
 
             <Route path="*" element={<NotFound/>}/>
         </Routes>
-
     );
 };
 

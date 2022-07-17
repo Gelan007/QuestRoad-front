@@ -71,34 +71,34 @@ function EditQuest(){
                                 <Form onSubmit={editQuest}>
                                     <h1>Update Quest</h1>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="name" placeholder={result[0].name} onChange={(e)=>setName(e.target.value)}/>
+                                        <YellowInput style={{marginBottom: "25px"}} type="text" name="name" placeholder={result[0].name} onChange={(e)=>setName(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="description" placeholder={result[0].description} onChange={(e)=>setDescription(e.target.value)}/>
+                                        <YellowInput style={{ marginBottom: "25px"}} type="text" name="description" placeholder={result[0].description} onChange={(e)=>setDescription(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="difficulty_level" placeholder={result[0].difficulty_level} onChange={(e)=>setDifficulty_level(e.target.value)}/>
+                                        <YellowInput style={{marginBottom: "25px"}} type="text" name="difficulty_level" placeholder={result[0].difficulty_level} onChange={(e)=>setDifficulty_level(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="city" placeholder={result[0].city} onChange={(e)=>setCity(e.target.value)}/>
+                                        <YellowInput style={{ marginBottom: "25px"}} type="text" name="city" placeholder={result[0].city} onChange={(e)=>setCity(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="address" placeholder={result[0].adress} onChange={(e)=>setAdress(e.target.value)}/>
+                                        <YellowInput style={{ marginBottom: "25px"}} type="text" name="address" placeholder={result[0].adress} onChange={(e)=>setAdress(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="category" placeholder={result[0].category} onChange={(e)=>setCategory(e.target.value)}/>
+                                        <YellowInput style={{ marginBottom: "25px"}} type="text" name="category" placeholder={result[0].category} onChange={(e)=>setCategory(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="actors" placeholder={result[0].actors} onChange={(e)=>setActors(e.target.value)}/>
+                                        <YellowInput style={{ marginBottom: "25px"}} type="text" name="actors" placeholder={result[0].actors} onChange={(e)=>setActors(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="company_id" placeholder={result[0].company_id} onChange={(e)=>setCompany_id(e.target.value)}/>
+                                        <YellowInput style={{ marginBottom: "25px"}} type="text" name="company_id" placeholder={result[0].company_id} onChange={(e)=>setCompany_id(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="max_count_users" placeholder={result[0].max_count_users} onChange={(e)=>setMax_count_users(e.target.value)}/>
+                                        <YellowInput style={{ marginBottom: "25px"}} type="text" name="max_count_users" placeholder={result[0].max_count_users} onChange={(e)=>setMax_count_users(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="price" placeholder={result[0].price} onChange={(e)=>setPice(e.target.value)}/>
+                                        <YellowInput style={{ marginBottom: "25px"}} type="text" name="price" placeholder={result[0].price} onChange={(e)=>setPice(e.target.value)}/>
                                     </InputGroup>
                                     <CardFooter className="p-4">
                                         <Row>

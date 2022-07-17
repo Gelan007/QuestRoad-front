@@ -13,11 +13,7 @@ function EditUser(){
     const [name, setName] = useState("");
     const [role, setRole] = useState(0);
     const [company_id, setCompanyId] = useState(0);
-
-
-
     const navigate = useNavigate();
-
 
 
     async function editUser(e){
@@ -38,7 +34,6 @@ function EditUser(){
         else{
             alert("Что-то пошло не так");
         }
-
     }
 
 
@@ -68,22 +63,22 @@ function EditUser(){
                                 <Form onSubmit={editUser}>
                                     <h1>Update User</h1>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="email" placeholder={result[0].email} onChange={(e)=>setEmail(e.target.value)}/>
+                                        <YellowInput style={{ marginBottom: "25px"}} type="text" name="email" placeholder={result[0].email} onChange={(e)=>setEmail(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="phone" placeholder={result[0].phone} onChange={(e)=>setPhone(e.target.value)}/>
+                                        <YellowInput style={{ marginBottom: "25px"}} type="text" name="phone" placeholder={result[0].phone} onChange={(e)=>setPhone(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="password" placeholder={result[0].password} onChange={(e)=>setPassword(e.target.value)}/>
+                                        <YellowInput style={{marginBottom: "25px"}} type="text" name="password" placeholder={result[0].password} onChange={(e)=>setPassword(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="name" placeholder={result[0].name} onChange={(e)=>setName(e.target.value)}/>
+                                        <YellowInput style={{ marginBottom: "25px"}} type="text" name="name" placeholder={result[0].name} onChange={(e)=>setName(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}}type="text" name="role" placeholder={result[0].role} onChange={(e)=>setRole(e.target.value)}/>
+                                        <YellowInput style={{ marginBottom: "25px"}}type="text" name="role" placeholder={result[0].role} onChange={(e)=>setRole(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "25px"}} type="text" name="company_id" placeholder={result[0].company_id} onChange={(e)=>setCompanyId(e.target.value)}/>
+                                        <YellowInput style={{ marginBottom: "25px"}} type="text" name="company_id" placeholder={result[0].company_id} onChange={(e)=>setCompanyId(e.target.value)}/>
                                     </InputGroup>
 
                                     <CardFooter className="p-4">

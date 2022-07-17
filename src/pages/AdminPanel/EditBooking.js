@@ -45,10 +45,6 @@ function EditBooking(){
 
     }
 
-
-
-
-
     let result = [];
     for(let i = 0; i < JSON.parse(localStorage.getItem("book")).length; i++ ){
         if(JSON.parse(localStorage.getItem("book"))[i].booking_id == localStorage.getItem("BookingId")){
@@ -70,23 +66,23 @@ function EditBooking(){
                                     <h1>Update Booking</h1>
                                     <InputGroup className="mb-3">
                                         Айді квесту
-                                        <YellowInput  style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="quest_id" placeholder={result[0].quest_id} onChange={(e)=>setQuest_id(e.target.value)}/>
+                                        <YellowInput  style={{ marginBottom: "20px"}} type="text" name="quest_id" placeholder={result[0].quest_id} onChange={(e)=>setQuest_id(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
                                         Айді команди
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="team_id" placeholder={result[0].team_id} onChange={(e)=>setTeam_id(e.target.value)}/>
+                                        <YellowInput style={{  marginBottom: "20px"}} type="text" name="team_id" placeholder={result[0].team_id} onChange={(e)=>setTeam_id(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
                                         Ціна
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="price" placeholder={result[0].price} onChange={(e)=>setPrice(e.target.value)}/>
+                                        <YellowInput style={{marginBottom: "20px"}} type="text" name="price" placeholder={result[0].price} onChange={(e)=>setPrice(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
                                         Час
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="time" placeholder={result[0].time} onChange={(e)=>setTime(e.target.value)}/>
+                                        <YellowInput style={{ marginBottom: "20px"}} type="text" name="time" placeholder={result[0].time} onChange={(e)=>setTime(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
                                         Опис
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "50px"}} type="text" name="description" placeholder={result[0].description} onChange={(e)=>setDescription(e.target.value)}/>
+                                        <YellowInput style={{ marginBottom: "50px"}} type="text" name="description" placeholder={result[0].description} onChange={(e)=>setDescription(e.target.value)}/>
                                     </InputGroup>
                                     <CardFooter className="p-4">
                                         <Row>

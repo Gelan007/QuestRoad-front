@@ -1,0 +1,9 @@
+.select {
+    background: #8C8888;
+    border: 1px solid #E2DD5C;
+    font-size: 16px;
+}
+
+.defaultValue {
+    color: #A3A672;
+}

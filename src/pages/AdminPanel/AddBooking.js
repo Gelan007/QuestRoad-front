@@ -46,23 +46,23 @@ function AddBooking(){
                                     <h1>Add New</h1>
                                     <InputGroup className="mb-3">
                                         Айді квесту
-                                        <YellowInput  style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="quest_id" placeholder="quest_id" onChange={(e)=>setQuest_id(e.target.value)}/>
+                                        <YellowInput  style={{marginBottom: "20px"}} type="text" name="quest_id" placeholder="quest_id" onChange={(e)=>setQuest_id(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
                                         Айді команди
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="team_id" placeholder="team_id" onChange={(e)=>setTeam_id(e.target.value)}/>
+                                        <YellowInput style={{ marginBottom: "20px"}} type="text" name="team_id" placeholder="team_id" onChange={(e)=>setTeam_id(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
                                         Ціна
-                                        <YellowInput  style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="price" placeholder="price" onChange={(e)=>setPrice(e.target.value)}/>
+                                        <YellowInput  style={{marginBottom: "20px"}} type="text" name="price" placeholder="price" onChange={(e)=>setPrice(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
                                         Час
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "20px"}} type="text" name="time" placeholder="time" onChange={(e)=>setTime(e.target.value)}/>
+                                        <YellowInput style={{  marginBottom: "20px"}} type="text" name="time" placeholder="time" onChange={(e)=>setTime(e.target.value)}/>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
                                         Опис
-                                        <YellowInput style={{background:"#E3E3E3", color:"black", marginBottom: "50px"}} type="text" name="description" placeholder="description" onChange={(e)=>setDescription(e.target.value)}/>
+                                        <YellowInput style={{ marginBottom: "50px"}} type="text" name="description" placeholder="description" onChange={(e)=>setDescription(e.target.value)}/>
                                     </InputGroup>
 
 
